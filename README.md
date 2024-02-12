@@ -6,9 +6,10 @@ By Starwalker
 
 Integrantes: 
 
-Nicolas
+Nicolas:
+Soy estudiante de 5 semestre de ingeneria de sistemas, jugador de alto rendimineto de la seleccion de la universidad apasionado al desarrollo web , amante de la co- mida tipica de las iudades de colombia, Criado en Bogotá, y con miras al exito en la mejor carrera de la universidad Javeriana
 
-
+![Imagen de WhatsApp 2024-02-12 a las 18 29 19_303a2d01](https://github.com/Intro-CompuMovil/EasyBooking/assets/142281335/3710fe5b-87c8-4c5f-89d9-a9d194dca79b)
 
 
 .

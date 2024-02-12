@@ -1,7 +1,9 @@
 # EasyBooking
 By Starwalker
+sección de entregables:
 
 [Historia de usuarios - Sheet1.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14240234/Historia.de.usuarios.-.Sheet1.pdf)
+
 [LeanCanva.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14240237/LeanCanva.pdf)
 
 Integrantes: 

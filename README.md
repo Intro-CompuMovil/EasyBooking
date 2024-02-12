@@ -29,6 +29,8 @@ Laura
 
 Sebastian Isaza J:
 
-![sebotas](https://github.com/Intro-CompuMovil/EasyBooking/assets/77295506/f323a9fc-c7f7-4bcf-ae0b-4afe48c24815)
+
+![Sebotas y Presidente](https://github.com/Intro-CompuMovil/EasyBooking/assets/77295506/d8fa4152-4bee-4042-85a7-d9c5e25495e5)
+
 Estudiante de septimo semestre de Ingenieria de Sistemas. Nacido en Caracas (Venezuela) pero criado en Manizales (Colombia). Obtuvo el HS Diploma en junio 2020. Algunos intereses son el tennis, la comida, y el arte taurino. 
 

@@ -11,16 +11,19 @@ Nicolas
 
 
 
+.
 Axel
 
 
 
 
+.
 Laura
 
 
 
 
+.
 Sebastian Isaza J:
 
 ![sebotas](https://github.com/Intro-CompuMovil/EasyBooking/assets/77295506/f323a9fc-c7f7-4bcf-ae0b-4afe48c24815)

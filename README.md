@@ -18,9 +18,10 @@ Soy estudiante de 5 semestre de ingeneria de sistemas, jugador de alto rendimine
 
 .
 
-Axel
+Axel:
+Soy estudiante de sexto semestre de ingenieria de sistemas, atleta y entusiasta de probar restaurantes, nací en Bogota -  criado en Cali y con ansias de ver que me espera el futuro.
 
-
+![WhatsApp Image 2024-02-12 at 20 38 17_4abe37ec](https://github.com/Intro-CompuMovil/EasyBooking/assets/157514583/c2ee2783-2136-4726-baf7-b27bf1c94355)
 
 
 .

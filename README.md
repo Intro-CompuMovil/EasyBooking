@@ -18,8 +18,8 @@ Pantalla 4: 7
 [tinywow_tinywow_Pantallas_47626323_47626422.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255628/tinywow_tinywow_Pantallas_47626323_47626422.pdf)
 
 
-pantalla 5: 8
-Pan[tinywow_Pantallas_47626160.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255576/tinywow_Pantallas_47626160.pdf)
+Pantalla 5: 8
+[tinywow_Pantallas_47626160.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255576/tinywow_Pantallas_47626160.pdf)
 
 Pantalla 6: 9-10
 [tinywow_Pantallas_47626287.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255588/tinywow_Pantallas_47626287.pdf)

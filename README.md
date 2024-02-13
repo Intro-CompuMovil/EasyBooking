@@ -8,6 +8,28 @@ sección de entregables:
 
 [LeanCanva.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14240237/LeanCanva.pdf)
 
+Pantallas 1: 1-5
+[tinywow_Pantallas_47625606.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255458/tinywow_Pantallas_47625606.pdf)
+
+Pantallas 2: 6
+[tinywow_Pantallas_47625938.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255512/tinywow_Pantallas_47625938.pdf)
+
+Pantalla 4: 7
+[tinywow_tinywow_Pantallas_47626323_47626422.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255628/tinywow_tinywow_Pantallas_47626323_47626422.pdf)
+
+
+pantalla 5: 8
+Pan[tinywow_Pantallas_47626160.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255576/tinywow_Pantallas_47626160.pdf)
+
+Pantalla 6: 9-10
+[tinywow_Pantallas_47626287.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255588/tinywow_Pantallas_47626287.pdf)
+
+
+Pantalla 5: 11-14
+[tinywow_Pantallas_47625674.pdf](https://github.com/Intro-CompuMovil/EasyBooking/files/14255463/tinywow_Pantallas_47625674.pdf)
+
+
+
 Integrantes: 
 
 Nicolas:
@@ -28,9 +50,10 @@ Soy estudiante de sexto semestre de ingenieria de sistemas, atleta y entusiasta 
 
 Laura
 
+![WhatsApp Image 2024-02-12 at 22 04 18_61134867](https://github.com/Intro-CompuMovil/EasyBooking/assets/77295506/22756fc4-271b-4b36-8dc4-343089e4edc4)
 
 
-
+Estudiante de quinto semestre nacida en Cartagena, apasionada por el diseño de interfaces y con metas claras de realizar proyectos que impacten positivamente y mejoren la vida de los demás.
 .
 
 Sebastian Isaza J:

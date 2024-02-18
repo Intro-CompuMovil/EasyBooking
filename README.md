@@ -63,3 +63,4 @@ Sebastian Isaza J:
 
 Estudiante de septimo semestre de Ingenieria de Sistemas. Nacido en Caracas (Venezuela) pero criado en Manizales (Colombia). Obtuvo el HS Diploma en junio 2020. Algunos intereses son el tennis, la comida, y el arte taurino. 
 
+

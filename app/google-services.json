@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "706038449276",
+    "project_id": "easybooking-9e5f2",
+    "storage_bucket": "easybooking-9e5f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706038449276:android:c4239a7c4405e98dfdf5f9",
+        "android_client_info": {
+          "package_name": "com.example.easybooking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6aDvkevOCm-qXvzGwLlUaAVnhd3Nn-nA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

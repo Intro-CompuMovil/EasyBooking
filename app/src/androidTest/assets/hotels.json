@@ -1,0 +1,151 @@
+{
+  "hotels": [
+    {
+      "name": "Hotel Bogotá Palace",
+      "location": "Bogotá",
+      "stars": 4,
+      "price_per_night": 120,
+      "amenities": ["WiFi", "Parking", "Restaurant"]
+    },
+    {
+      "name": "Cartagena Beach Resort",
+      "location": "Cartagena",
+      "stars": 5,
+      "price_per_night": 300,
+      "amenities": ["WiFi", "Beach Access", "Spa", "Pool"]
+    },
+    {
+      "name": "Medellín Downtown Suites",
+      "location": "Medellín",
+      "stars": 3,
+      "price_per_night": 80,
+      "amenities": ["WiFi", "Breakfast Included"]
+    },
+    {
+      "name": "Santa Marta Oceanview Hotel",
+      "location": "Santa Marta",
+      "stars": 4,
+      "price_per_night": 180,
+      "amenities": ["WiFi", "Pool", "Gym"]
+    },
+    {
+      "name": "Cali Riverside Inn",
+      "location": "Cali",
+      "stars": 3,
+      "price_per_night": 70,
+      "amenities": ["WiFi", "Parking"]
+    },
+    {
+      "name": "San Andrés Island Resort",
+      "location": "San Andrés",
+      "stars": 5,
+      "price_per_night": 250,
+      "amenities": ["WiFi", "Beach Access", "Spa", "Pool"]
+    },
+    {
+      "name": "Pereira Mountain Lodge",
+      "location": "Pereira",
+      "stars": 4,
+      "price_per_night": 150,
+      "amenities": ["WiFi", "Scenic Views"]
+    },
+    {
+      "name": "Barranquilla Grand Plaza",
+      "location": "Barranquilla",
+      "stars": 4,
+      "price_per_night": 130,
+      "amenities": ["WiFi", "Parking", "Restaurant"]
+    },
+    {
+      "name": "Villa de Leyva Boutique Hotel",
+      "location": "Villa de Leyva",
+      "stars": 4,
+      "price_per_night": 160,
+      "amenities": ["WiFi", "Breakfast Included"]
+    },
+    {
+      "name": "Popayán Colonial Retreat",
+      "location": "Popayán",
+      "stars": 3,
+      "price_per_night": 90,
+      "amenities": ["WiFi", "Parking"]
+    },
+    {
+      "name": "QUO Quality Hotel",
+      "location": "Manizales",
+      "stars": 4,
+      "price_per_night": 85,
+      "amenities": ["WiFi", "Scenic Views"]
+    },
+    {
+      "name": "Pasto Lakeside Resort",
+      "location": "Pasto",
+      "stars": 3,
+      "price_per_night": 95,
+      "amenities": ["WiFi", "Lake Access", "Breakfast Included"]
+    },
+    {
+      "name": "Cúcuta City Center Hotel",
+      "location": "Cúcuta",
+      "stars": 3,
+      "price_per_night": 75,
+      "amenities": ["WiFi", "Parking"]
+    },
+    {
+      "name": "Armenia Vineyard Retreat",
+      "location": "Armenia",
+      "stars": 4,
+      "price_per_night": 140,
+      "amenities": ["WiFi", "Vineyard Tours", "Scenic Views"]
+    },
+    {
+      "name": "Neiva Desert Oasis",
+      "location": "Neiva",
+      "stars": 3,
+      "price_per_night": 100,
+      "amenities": ["WiFi", "Pool"]
+    },
+    {
+      "name": "Montería Riverside Hotel",
+      "location": "Montería",
+      "stars": 3,
+      "price_per_night": 80,
+      "amenities": ["WiFi", "River Access", "Breakfast Included"]
+    },
+    {
+      "name": "Sincelejo Urban Retreat",
+      "location": "Sincelejo",
+      "stars": 3,
+      "price_per_night": 70,
+      "amenities": ["WiFi", "Parking"]
+    },
+    {
+      "name": "Tunja Mountain View Lodge",
+      "location": "Tunja",
+      "stars": 3,
+      "price_per_night": 90,
+      "amenities": ["WiFi", "Mountain Views", "Breakfast Included"]
+    },
+    {
+      "name": "Riohacha Coastal Resort",
+      "location": "Riohacha",
+      "stars": 3,
+      "price_per_night": 110,
+      "amenities": ["WiFi", "Beach Access", "Pool"]
+    },
+    {
+      "name": "Valledupar Cultural Hotel",
+      "location": "Valledupar",
+      "stars": 3,
+      "price_per_night": 75,
+      "amenities": ["WiFi", "Cultural Tours"]
+    },
+    {
+      "name": "Suite Jones Hotel",
+      "location": "Bogotá",
+      "stars": 4,
+      "price_per_night": 85,
+      "amenities": ["WiFi", "City Views", "Breakfast Included"]
+    }
+  ]
+}

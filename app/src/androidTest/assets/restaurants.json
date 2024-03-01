@@ -1,0 +1,144 @@
+{
+  "restaurants": [
+    {
+      "name": "El Cielo",
+      "location": "Bogotá",
+      "cuisine": "Colombian, Molecular Gastronomy",
+      "price_range": "$$$",
+      "rating": 4.8
+    },
+    {
+      "name": "Harry Sasson",
+      "location": "Bogotá",
+      "cuisine": "Colombian, International",
+      "price_range": "$$$",
+      "rating": 4.6
+    },
+    {
+      "name": "Andrés Carne de Res",
+      "location": "Chía",
+      "cuisine": "Colombian, Steakhouse",
+      "price_range": "$$",
+      "rating": 4.5
+    },
+    {
+      "name": "Criterion",
+      "location": "Bogotá",
+      "cuisine": "French, Colombian",
+      "price_range": "$$$",
+      "rating": 4.7
+    },
+    {
+      "name": "Mistura",
+      "location": "Cartagena",
+      "cuisine": "Colombian, Seafood",
+      "price_range": "$$$",
+      "rating": 4.6
+    },
+    {
+      "name": "Mini-mal",
+      "location": "Medellín",
+      "cuisine": "Colombian, Contemporary",
+      "price_range": "$$",
+      "rating": 4.5
+    },
+    {
+      "name": "Leo Cocina y Cava",
+      "location": "Bogotá",
+      "cuisine": "Colombian, Contemporary",
+      "price_range": "$$$",
+      "rating": 4.8
+    },
+    {
+      "name": "Criterión",
+      "location": "Barranquilla",
+      "cuisine": "International, Colombian",
+      "price_range": "$$$",
+      "rating": 4.5
+    },
+    {
+      "name": "Restaurante 1621",
+      "location": "Cartagena",
+      "cuisine": "French, Caribbean",
+      "price_range": "$$$",
+      "rating": 4.7
+    },
+    {
+      "name": "Salvo Patria",
+      "location": "Medellín",
+      "cuisine": "Colombian, Fusion",
+      "price_range": "$$",
+      "rating": 4.6
+    },
+    {
+      "name": "La Provincia",
+      "location": "Cali",
+      "cuisine": "Colombian, Seafood",
+      "price_range": "$$",
+      "rating": 4.4
+    },
+    {
+      "name": "El Santísimo",
+      "location": "Cartagena",
+      "cuisine": "Colombian, Fusion",
+      "price_range": "$$",
+      "rating": 4.7
+    },
+    {
+      "name": "Restaurante La Vitrola",
+      "location": "Cartagena",
+      "cuisine": "International, Colombian",
+      "price_range": "$$$",
+      "rating": 4.6
+    },
+    {
+      "name": "La Cevichería",
+      "location": "Cartagena",
+      "cuisine": "Seafood, Colombian",
+      "price_range": "$$",
+      "rating": 4.5
+    },
+    {
+      "name": "Carmen",
+      "location": "Medellín",
+      "cuisine": "Colombian, Fusion",
+      "price_range": "$$",
+      "rating": 4.6
+    },
+    {
+      "name": "Osaka",
+      "location": "Bogotá",
+      "cuisine": "Japanese, Peruvian",
+      "price_range": "$$$",
+      "rating": 4.7
+    },
+    {
+      "name": "El Kilo",
+      "location": "Bogotá",
+      "cuisine": "Colombian, Seafood",
+      "price_range": "$$",
+      "rating": 4.5
+    },
+    {
+      "name": "Restaurante Barcal",
+      "location": "Medellín",
+      "cuisine": "Colombian, Fusion",
+      "price_range": "$$",
+      "rating": 4.6
+    },
+    {
+      "name": "Restaurante Versión Original",
+      "location": "Bogotá",
+      "cuisine": "Colombian, Fusion",
+      "price_range": "$$$",
+      "rating": 4.8
+    },
+    {
+      "name": "Restaurante Bastión",
+      "location": "Cartagena",
+      "cuisine": "Caribbean, Fusion",
+      "price_range": "$$$",
+      "rating": 4.7
+    }
+  ]
+}

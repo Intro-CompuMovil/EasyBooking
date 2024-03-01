@@ -30,26 +30,25 @@ class RestaurantListFragment : Fragment() {
     private fun getSampleRestaurants(): List<Restaurant> {
         // Create sample restaurants
         return listOf(
-            Restaurant("El Cielo", "Bogotá", "Colombian, Molecular Gastronomy", "$$$", 4.8),
-            Restaurant("Harry Sasson", "Bogotá", "Colombian, International", "$$$", 4.6),
-            Restaurant("Andrés Carne de Res", "Chía", "Colombian, Steakhouse", "$$", 4.5),
-            Restaurant("Criterion", "Bogotá", "French, Colombian", "$$$", 4.7),
-            Restaurant("Mistura", "Cartagena", "Colombian, Seafood", "$$$", 4.6),
-            Restaurant("Mini-mal", "Medellín", "Colombian, Contemporary", "$$", 4.5),
-            Restaurant("Leo Cocina y Cava", "Bogotá", "Colombian, Contemporary", "$$$", 4.8),
-            Restaurant("Criterión", "Barranquilla", "International, Colombian", "$$$", 4.5),
-            Restaurant("Restaurante 1621", "Cartagena", "French, Caribbean", "$$$", 4.7),
-            Restaurant("Salvo Patria", "Medellín", "Colombian, Fusion", "$$", 4.6),
-            Restaurant("La Provincia", "Cali", "Colombian, Seafood", "$$", 4.4),
-            Restaurant("El Santísimo", "Cartagena", "Colombian, Fusion", "$$", 4.7),
-            Restaurant("Restaurante La Vitrola", "Cartagena", "International, Colombian", "$$$", 4.6),
-            Restaurant("La Cevichería", "Cartagena", "Seafood, Colombian", "$$", 4.5),
-            Restaurant("Carmen", "Medellín", "Colombian, Fusion", "$$", 4.6),
-            Restaurant("Osaka", "Bogotá", "Japanese, Peruvian", "$$$", 4.7),
-            Restaurant("El Kilo", "Bogotá", "Colombian, Seafood", "$$", 4.5),
-            Restaurant("Restaurante Barcal", "Medellín", "Colombian, Fusion", "$$", 4.6),
-            Restaurant("Restaurante Versión Original", "Bogotá", "Colombian, Fusion", "$$$", 4.8),
-            Restaurant("Restaurante Bastión", "Cartagena", "Caribbean, Fusion", "$$$", 4.7)
+            Restaurant("El Cielo", "Bogotá", "Colombian, Molecular Gastronomy", "$$$", 4.8, R.drawable.el_cielo),
+            Restaurant("Harry Sasson", "Bogotá", "Colombian, International", "$$$", 4.6, R.drawable.harry_sasson),
+            Restaurant("Andrés Carne de Res", "Chía", "Colombian, Steakhouse", "$$", 4.5, R.drawable.andres),
+            Restaurant("Criterion", "Bogotá", "French, Colombian", "$$$", 4.7, R.drawable.criterion),
+            Restaurant("Mistura", "Cartagena", "Colombian, Seafood", "$$$", 4.6, R.drawable.mistura),
+            Restaurant("Mini-mal", "Medellín", "Colombian, Contemporary", "$$", 4.5, R.drawable.mini_mal_salon),
+            Restaurant("Leo Cocina y Cava", "Bogotá", "Colombian, Contemporary", "$$$", 4.8, R.drawable.download),
+            Restaurant("Restaurante 1621", "Cartagena", "French, Caribbean", "$$$", 4.7, R.drawable._621),
+            Restaurant("Salvo Patria", "Medellín", "Colombian, Fusion", "$$", 4.6, R.drawable.salvo),
+            Restaurant("La Provincia", "Cali", "Colombian, Seafood", "$$", 4.4, R.drawable.laprovincia),
+            Restaurant("El Santísimo", "Cartagena", "Colombian, Fusion", "$$", 4.7, R.drawable.santisimo),
+            Restaurant("Restaurante La Vitrola", "Cartagena", "International, Colombian", "$$$", 4.6, R.drawable.vitrola),
+            Restaurant("La Cevichería", "Cartagena", "Seafood, Colombian", "$$", 4.5, R.drawable.cevicher_a),
+            Restaurant("Carmen", "Medellín", "Colombian, Fusion", "$$", 4.6, R.drawable.carmen),
+            Restaurant("Osaka", "Bogotá", "Japanese, Peruvian", "$$$", 4.7, R.drawable.osaka),
+            Restaurant("El Kilo", "Bogotá", "Colombian, Seafood", "$$", 4.5, R.drawable.elkilo),
+            Restaurant("Restaurante Barcal", "Medellín", "Colombian, Fusion", "$$", 4.6, R.drawable.barcal),
+            Restaurant("Restaurante Versión Original", "Bogotá", "Colombian, Fusion", "$$$", 4.8, R.drawable.download),
+            Restaurant("Restaurante Bastión", "Cartagena", "Caribbean, Fusion", "$$$", 4.7, R.drawable.bastion)
 
         )
     }

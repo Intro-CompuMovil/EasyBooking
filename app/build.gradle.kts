@@ -34,6 +34,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")

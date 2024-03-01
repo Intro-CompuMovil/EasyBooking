@@ -5,5 +5,6 @@ data class Restaurant(
     val location: String,
     val cuisine: String,
     val priceRange: String,
-    val rating: Double
+    val rating: Double,
+    val imageResourceId: Int
 )

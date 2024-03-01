@@ -3,6 +3,7 @@ package com.example.easybooking
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,6 +17,7 @@ class RestaurantAdapter(private val restaurants: List<Restaurant>) :
         val cuisineTextView: TextView = itemView.findViewById(R.id.cuisineTextView)
         val priceRangeTextView: TextView = itemView.findViewById(R.id.priceRangeTextView)
         val ratingTextView: TextView = itemView.findViewById(R.id.ratingTextView)
+        val restaurantImageView: ImageView = itemView.findViewById(R.id.restaurantImageView) // Define ImageView
     }
 
     // Create ViewHolder instances for each item in the RecyclerView
@@ -33,6 +35,7 @@ class RestaurantAdapter(private val restaurants: List<Restaurant>) :
         holder.cuisineTextView.text = currentRestaurant.cuisine
         holder.priceRangeTextView.text = currentRestaurant.priceRange
         holder.ratingTextView.text = currentRestaurant.rating.toString()
+        holder.restaurantImageView.setImageResource(currentRestaurant.imageResourceId)
     }
 
     // Return the total number of items in the data set

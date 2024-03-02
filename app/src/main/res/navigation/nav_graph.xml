@@ -52,6 +52,19 @@
     <fragment
         android:id="@+id/hotelListFragment"
         android:name="com.example.easybooking.HotelListFragment"
-        android:label="HotelListFragment" />
+        android:label="HotelListFragment" >
+
+        <action
+            android:id="@+id/action_hotelListFragment_to_BookingHotelFragment"
+            app:destination="@id/bookingHotelFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/bookingHotelFragment"
+        android:name="com.example.easybooking.BookingHotelFragment"
+        android:label="BookingHotelFragment" />
+
+
 
 </navigation>

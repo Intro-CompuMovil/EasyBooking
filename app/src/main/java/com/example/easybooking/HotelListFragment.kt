@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -113,10 +114,10 @@ class HotelListFragment : Fragment(), HotelAdapter.HotelItemClickListener {
             val bundle = Bundle()
             bundle.putString("HOTEL_NAME", it.name)
             bundle.putString("HOTEL_LOCATION", it.location)
-            bundle.putString("HOTEL_PRICE_RANGE", it.amenities)
+            bundle.putString("HOTEL_AMENITIES", it.amenities)
             bundle.putInt("HOTEL_IMAGE", it.imageResourceId)
             // Navigate to the BookingHotelFragment with the bundle
-            // findNavController().navigate(R.id.action_HotelListFragment_to_bookingHotelFragment, bundle)
+            findNavController().navigate(R.id.action_hotelListFragment_to_BookingHotelFragment, bundle)
         }
     }
 

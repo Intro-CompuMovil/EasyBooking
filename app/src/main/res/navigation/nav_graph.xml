@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/restaurantListFragment">
+    app:startDestination="@id/hotelListFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -31,6 +31,8 @@
         android:name="com.example.easybooking.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
+
+
     <fragment
         android:id="@+id/restaurantListFragment"
         android:name="com.example.easybooking.RestaurantListFragment"
@@ -40,9 +42,16 @@
         android:id="@+id/action_restaurantListFragment_to_bookingRestaurantFragment"
         app:destination="@id/bookingRestaurantFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/bookingRestaurantFragment"
         android:name="com.example.easybooking.BookingRestaurantFragment"
         android:label="BookingRestaurantFragment" />
+
+
+    <fragment
+        android:id="@+id/hotelListFragment"
+        android:name="com.example.easybooking.HotelListFragment"
+        android:label="HotelListFragment" />
 
 </navigation>

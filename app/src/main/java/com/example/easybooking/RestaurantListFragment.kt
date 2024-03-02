@@ -1,14 +1,17 @@
 package com.example.easybooking
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class RestaurantListFragment : Fragment() {
+class RestaurantListFragment : Fragment(), RestaurantAdapter.RestaurantItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RestaurantAdapter
@@ -20,7 +23,7 @@ class RestaurantListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_restaurant_list, container, false)
 
         recyclerView = view.findViewById(R.id.recyclerView)
-        adapter = RestaurantAdapter(getSampleRestaurants())
+        adapter = RestaurantAdapter(getSampleRestaurants(), this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -49,7 +52,16 @@ class RestaurantListFragment : Fragment() {
             Restaurant("Restaurante Barcal", "Medellín", "Colombian, Fusion", "$$", 4.6, R.drawable.barcal),
             Restaurant("Restaurante Versión Original", "Bogotá", "Colombian, Fusion", "$$$", 4.8, R.drawable.download),
             Restaurant("Restaurante Bastión", "Cartagena", "Caribbean, Fusion", "$$$", 4.7, R.drawable.bastion)
-
         )
+    }
+
+    override fun onRestaurantItemClick(name: String) {
+        // Handle item click here
+        Log.d("RestaurantListFragment", "Clicked restaurant: $name")
+
+        // Navigate to the BookingRestaurantFragment with the restaurant name as an argument
+        val bundle = Bundle()
+        bundle.putString("RESTAURANT_NAME", name)
+        findNavController().navigate(R.id.action_restaurantListFragment_to_bookingRestaurantFragment, bundle)
     }
 }

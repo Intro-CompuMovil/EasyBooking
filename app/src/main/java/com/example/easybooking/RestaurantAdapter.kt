@@ -7,8 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RestaurantAdapter(private val restaurants: List<Restaurant>) :
+class RestaurantAdapter(private val restaurants: List<Restaurant>, private val listener: RestaurantListFragment) :
     RecyclerView.Adapter<RestaurantAdapter.RestaurantViewHolder>() {
+    interface RestaurantItemClickListener {
+        fun onRestaurantItemClick(name: String)
+    }
 
     // ViewHolder class holds references to the views for each item
     class RestaurantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -18,6 +21,9 @@ class RestaurantAdapter(private val restaurants: List<Restaurant>) :
         val priceRangeTextView: TextView = itemView.findViewById(R.id.priceRangeTextView)
         val ratingTextView: TextView = itemView.findViewById(R.id.ratingTextView)
         val restaurantImageView: ImageView = itemView.findViewById(R.id.restaurantImageView) // Define ImageView
+
+
+
     }
 
     // Create ViewHolder instances for each item in the RecyclerView
@@ -36,6 +42,11 @@ class RestaurantAdapter(private val restaurants: List<Restaurant>) :
         holder.priceRangeTextView.text = currentRestaurant.priceRange
         holder.ratingTextView.text = currentRestaurant.rating.toString()
         holder.restaurantImageView.setImageResource(currentRestaurant.imageResourceId)
+
+        // Handle item click
+        holder.itemView.setOnClickListener {
+            listener.onRestaurantItemClick(currentRestaurant.name)
+        }
     }
 
     // Return the total number of items in the data set

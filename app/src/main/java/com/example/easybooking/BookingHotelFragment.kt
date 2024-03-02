@@ -55,11 +55,7 @@ class BookingHotelFragment : Fragment() {
             showDatePickerDialog()
         }
 
-        // Set up button to open TimePicker dialog
-        timePickerButton = view.findViewById(R.id.timePickerButton)
-        timePickerButton.setOnClickListener {
-            showTimePickerDialog()
-        }
+
 
         // Set up counter functionality
         val counterTextView: TextView = view.findViewById(R.id.counterTextView)
@@ -103,19 +99,5 @@ class BookingHotelFragment : Fragment() {
         datePickerDialog.show()
     }
 
-    private fun showTimePickerDialog() {
-        val calendar = Calendar.getInstance()
-        val hour = calendar.get(Calendar.HOUR_OF_DAY)
-        val minute = calendar.get(Calendar.MINUTE)
 
-        val timePickerDialog = TimePickerDialog(requireContext(), { _, hourOfDay, minute ->
-            // Handle the selected time
-            // You can access the selected hourOfDay and minute here
-            val format = if (hourOfDay < 12) "AM" else "PM"
-            val hour12 = if (hourOfDay > 12) hourOfDay - 12 else hourOfDay
-            val pickedTime = String.format(Locale.getDefault(), "%02d:%02d %s", hour12, minute, format)
-            timePickerButton.text = pickedTime
-        }, hour, minute, false) // 12-hour format
-        timePickerDialog.show()
-    }
 }

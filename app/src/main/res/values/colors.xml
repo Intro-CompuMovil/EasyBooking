@@ -8,4 +8,7 @@
     <color name="darkBackgroundColor">#000000</color>
     <color name="darkStrokeColor">#999999</color>
     <color name="strokeColor">#CCCCCC</color>
+
+    <color name="orange">#FF5722</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

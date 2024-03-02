@@ -16,9 +16,9 @@ class RestaurantAdapter(private val restaurants: List<Restaurant>, private val l
     // ViewHolder class holds references to the views for each item
     class RestaurantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
-        val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
+        //val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
         val cuisineTextView: TextView = itemView.findViewById(R.id.cuisineTextView)
-        val priceRangeTextView: TextView = itemView.findViewById(R.id.priceRangeTextView)
+        //val priceRangeTextView: TextView = itemView.findViewById(R.id.priceRangeTextView)
         val ratingTextView: TextView = itemView.findViewById(R.id.ratingTextView)
         val restaurantImageView: ImageView = itemView.findViewById(R.id.restaurantImageView) // Define ImageView
 
@@ -37,9 +37,9 @@ class RestaurantAdapter(private val restaurants: List<Restaurant>, private val l
     override fun onBindViewHolder(holder: RestaurantViewHolder, position: Int) {
         val currentRestaurant = restaurants[position]
         holder.nameTextView.text = currentRestaurant.name
-        holder.locationTextView.text = currentRestaurant.location
+        //holder.locationTextView.text = currentRestaurant.location
         holder.cuisineTextView.text = currentRestaurant.cuisine
-        holder.priceRangeTextView.text = currentRestaurant.priceRange
+        //holder.priceRangeTextView.text = currentRestaurant.priceRange
         holder.ratingTextView.text = currentRestaurant.rating.toString()
         holder.restaurantImageView.setImageResource(currentRestaurant.imageResourceId)
 

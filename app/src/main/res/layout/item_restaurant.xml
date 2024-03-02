@@ -38,12 +38,6 @@
                 android:layout_height="1dp"
                 android:layout_marginBottom="8dp"/>
 
-            <TextView
-                android:id="@+id/locationTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Location"
-                android:layout_marginBottom="4dp"/>
 
             <TextView
                 android:id="@+id/cuisineTextView"
@@ -52,12 +46,6 @@
                 android:text="Cuisine"
                 android:layout_marginBottom="4dp"/>
 
-            <TextView
-                android:id="@+id/priceRangeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price Range"
-                android:layout_marginBottom="4dp"/>
 
             <TextView
                 android:id="@+id/ratingTextView"

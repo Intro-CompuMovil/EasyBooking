@@ -11,7 +11,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 class BookingHotelFragment : Fragment() {
 
@@ -19,6 +22,7 @@ class BookingHotelFragment : Fragment() {
     private lateinit var datePickerButton: Button // Declare the datePickerButton globally
     private lateinit var timePickerButton: Button // Declare the timePickerButton globally
     private lateinit var reservarButton: Button // Declare the reservarButton globally
+    private var selectedDates: MutableList<Long> = mutableListOf() // Store selected dates
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,18 +89,35 @@ class BookingHotelFragment : Fragment() {
     }
 
     private fun showDatePickerDialog() {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+        val builder = MaterialDatePicker.Builder.dateRangePicker()
+        val picker = builder.build()
+        picker.addOnPositiveButtonClickListener { selection ->
+            // Store selected dates
+            selectedDates.clear()
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = selection.first ?: return@addOnPositiveButtonClickListener
+            val startDate = calendar.time
+            calendar.timeInMillis = selection.second ?: return@addOnPositiveButtonClickListener
+            val endDate = calendar.time
 
-        val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-            // Handle the selected date
-            // You can access the selected year, month, and dayOfMonth here
-            val pickedDate = "$dayOfMonth/${month + 1}/$year"
-            datePickerButton.text = pickedDate
-        }, year, month, dayOfMonth)
-        datePickerDialog.show()
+            // Format the selected dates
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+            val formattedStartDate = dateFormat.format(startDate)
+            val formattedEndDate = dateFormat.format(endDate)
+
+            // Update the button text
+            datePickerButton.text = "$formattedStartDate - $formattedEndDate"
+
+            // Store selected dates as timestamps
+            val daysBetween = TimeUnit.MILLISECONDS.toDays(endDate.time - startDate.time)
+            for (i in 0..daysBetween) {
+                val date = Calendar.getInstance()
+                date.time = startDate
+                date.add(Calendar.DATE, i.toInt())
+                selectedDates.add(date.timeInMillis)
+            }
+        }
+        picker.show(parentFragmentManager, picker.toString())
     }
 
 

@@ -43,7 +43,7 @@ class HotelListFragment : Fragment(), HotelAdapter.HotelItemClickListener {
                 "Wifi Minibar, Spa, Hot Springs, Gym, Parking", R.drawable.termales_del_oto_o),
 
             Hotel("Hotel Bogotá Palace", "Bogotá",4,120,
-                "WiFi Parking Restaurant", R.drawable.hotel_bogot__palace),
+                "WiFi Parking Restaurant", R.drawable.bogpalace),
 
             Hotel("Cartagena Beach Resort", "Cartagena", 5, 300,
                 "WiFi Beach Access Spa Pool", R.drawable.cartagena_beach_resort),
@@ -76,7 +76,7 @@ class HotelListFragment : Fragment(), HotelAdapter.HotelItemClickListener {
                 "WiFi Scenic Views", R.drawable.quo_quality_hotel),
 
             Hotel("Pasto Lakeside Resort", "Pasto", 3, 95,
-                "WiFi Lake Access Breakfast Included", R.drawable.pasto_lakeside_resort),
+                "WiFi Lake Access Breakfast Included", R.drawable.pastoresort),
 
             Hotel("Cúcuta City Center Hotel", "Cúcuta", 3, 75,
                 "WiFi Parking", R.drawable.c_cuta_city_center_hotel),

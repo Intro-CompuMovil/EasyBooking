@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +27,11 @@ class RestaurantListFragment : Fragment(), RestaurantAdapter.RestaurantItemClick
         adapter = RestaurantAdapter(getSampleRestaurants(), this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        hotelListButton = view.findViewById(R.id.hotelListButton)
+        hotelListButton.setOnClickListener {
+            navigateToHotelListFragment()
+        }
 
         return view
     }
@@ -81,6 +87,13 @@ class RestaurantListFragment : Fragment(), RestaurantAdapter.RestaurantItemClick
         val restaurant = getSampleRestaurants().find { it.name == name }
         // Return the image resource ID of the found restaurant
         return restaurant?.imageResourceId ?: 0 // Return 0 if restaurant is not found (handle error case)
+    }
+
+
+    private lateinit var hotelListButton: Button
+    private fun navigateToHotelListFragment() {
+        // Use the NavController to navigate to the restaurant list fragment
+        findNavController().navigate(R.id.action_your_current_fragment_to_fragment_hotel_list)
     }
 
 }

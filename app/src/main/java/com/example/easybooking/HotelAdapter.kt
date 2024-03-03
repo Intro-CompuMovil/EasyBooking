@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class HotelAdapter(private val hotels: List<Hotel>, private val listener: HotelItemClickListener) :
+
+
     RecyclerView.Adapter<HotelAdapter.HotelViewHolder>() {
     interface HotelItemClickListener {
         fun onHotelItemClick(name: String)

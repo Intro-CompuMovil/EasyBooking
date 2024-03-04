@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="lightBackgroundColor">#FFFFFF</color>
+    <color name="lightStrokeColor">#CCCCCC</color>
+    <color name="darkBackgroundColor">#000000</color>
+    <color name="darkStrokeColor">#999999</color>
+    <color name="strokeColor">#CCCCCC</color>
+
+    <color name="orange">#FF5722</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

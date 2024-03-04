@@ -13,6 +13,7 @@ import com.example.easybooking.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 

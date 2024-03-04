@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/item_border">
+
+    <TextView
+        android:id="@+id/restaurantNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="Restaurant Name" />
+
+    <ImageView
+        android:id="@+id/restaurantImageView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:theme="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/minusButton"
+            android:layout_width="59dp"
+            android:layout_height="39dp"
+            android:text="-"
+            android:backgroundTint="@color/orange"
+            android:onClick="decrementCounter"/>
+
+        <TextView
+            android:id="@+id/counterTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="0"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"/>
+
+        <Button
+            android:id="@+id/plusButton"
+            android:layout_width="59dp"
+            android:layout_height="39dp"
+            android:text="+"
+            android:backgroundTint="@color/orange"
+            android:onClick="incrementCounter"/>
+
+        <View
+            android:layout_width="36dp"
+            android:layout_height="1dp" />
+
+        <Button
+            android:id="@+id/datePickerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:onClick="showDatePickerDialog"
+            android:backgroundTint="@color/orange"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/commentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Write a comment..."
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:maxLines="5"
+        android:background="@drawable/item_border"
+        android:padding="8dp"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/timePickerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Time"
+        android:onClick="showTimePickerDialog"
+        android:backgroundTint="@color/orange"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:text="Location"
+        android:background="@drawable/item_border"/>
+
+    <TextView
+        android:id="@+id/priceRangeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:background="@drawable/item_border"
+        android:layout_marginBottom="14dp"/> <!-- Add margin bottom to create space -->
+
+    <Button
+        android:id="@+id/reservarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reservar"
+        android:backgroundTint="@color/orange"
+        android:onClick="reservarButtonClicked"/>
+
+</LinearLayout>

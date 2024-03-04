@@ -77,6 +77,19 @@
         android:name="com.example.easybooking.FragmentLogin"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/transportReservationFragment"
+        android:name="com.example.easybooking.TransportReservationFragment"
+        android:label="TransportReservationFragment" />
+    <fragment
+        android:id="@+id/reservationsFragment"
+        android:name="com.example.easybooking.ReservationsFragment"
+        android:label="fragment_reservations"
+        tools:layout="@layout/fragment_reservations" >
+        <action
+            android:id="@+id/action_reservationsFragment_to_transportReservationFragment"
+            app:destination="@id/transportReservationFragment" />
+    </fragment>
 
 
 </navigation>

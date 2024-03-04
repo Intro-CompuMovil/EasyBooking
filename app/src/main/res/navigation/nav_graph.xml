@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/hotelListFragment">
+    app:startDestination="@id/fragmentLogin">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -72,7 +72,11 @@
         android:id="@+id/bookingHotelFragment"
         android:name="com.example.easybooking.BookingHotelFragment"
         android:label="BookingHotelFragment" />
-
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="com.example.easybooking.FragmentLogin"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 
 
 </navigation>

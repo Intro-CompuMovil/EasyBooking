@@ -11,7 +11,7 @@ class BookingAdapter(private val bookingItems: List<Reservation>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookingViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_reservations, parent, false)
+            .inflate(R.layout.fragment_booking, parent, false)
         return BookingViewHolder(view)
     }
 

@@ -1,30 +1,37 @@
 package com.example.easybooking
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
+
 
 class BookingFragment : Fragment() {
+    private lateinit var TransButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_reservations, container, false)
-
-        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewReservations)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = BookingAdapter(getSampleData())
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_booking, container, false)
+        TransButton = view.findViewById(R.id.btnReserveTransport)
+        TransButton.setOnClickListener {
+            findNavController().navigate(R.id.action_bookingFragment_to_transportReservationFragment)
+        }
 
         return view
     }
 
-    private fun getSampleData(): List<Reservation> {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        return emptyList()
+
+
+
+
     }
 }

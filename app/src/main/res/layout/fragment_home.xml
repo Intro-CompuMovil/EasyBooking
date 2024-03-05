@@ -38,49 +38,81 @@
             android:hint="¿Qué quieres hacer hoy?"
             android:layout_marginBottom="16dp" />
 
-            <!-- Button for fragmentRestaurant_list -->
-            <Button
-                android:id="@+id/btnRestaurantList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Restaurantes" />
-
-            <!-- Button for fragment_hotel_list -->
-            <Button
-                android:id="@+id/btnHotelList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hoteles" />
+        <!-- Button for fragmentRestaurant_list -->
+        <Button
+            android:id="@+id/btnRestaurantList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurantes" />
 
 
-        <!-- Layout horizontal para la sección de comentarios y el botón de la cámara -->
+        <Button
+            android:id="@+id/btnHotelList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hoteles"
+            />
+        <Button
+            android:id="@+id/btnreservas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reservas Realizadas"
+            />
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="273dp"
+            android:layout_height="284dp"
+            android:layout_marginTop="16dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <!-- EditText para compartir experiencia -->
-            <EditText
-                android:id="@+id/editTextExperiencia"
-                android:layout_width="230dp"
-                android:layout_height="133dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_weight="1"
-                android:hint="Comparte tu experiencia" />
+            <!-- Sección de comentarios -->
+            <RelativeLayout
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <!-- Título "Comentarios" -->
+                <TextView
+                    android:id="@+id/comentariosTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Comentarios"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+
+                <!-- EditText para compartir experiencia -->
+                <EditText
+                    android:id="@+id/editTextExperiencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/comentariosTitle"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Comparte tu experiencia" />
+
+                <!-- Botón de enviar comentarios -->
+                <Button
+                    android:id="@+id/btnEnviarComentarios"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/editTextExperiencia"
+                    android:layout_marginTop="8dp"
+                    android:text="Enviar" />
+            </RelativeLayout>
 
             <!-- Botón de imagen para la cámara -->
             <ImageButton
                 android:id="@+id/btnCamera"
-                android:layout_width="99dp"
-                android:layout_height="133dp"
+                android:layout_width="155dp"
+                android:layout_height="112dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@null"
                 android:src="@drawable/img_3" />
         </LinearLayout>
-
     </LinearLayout>
 
 </RelativeLayout>

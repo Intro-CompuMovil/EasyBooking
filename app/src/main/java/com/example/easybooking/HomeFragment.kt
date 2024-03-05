@@ -29,8 +29,10 @@ class HomeFragment : Fragment() {
 
     private lateinit var btnRestaurantList: Button
     private lateinit var btnHotelList: Button
+    private lateinit var btnreservas: Button
     private lateinit var editTextExperiencia: EditText
     private lateinit var btnCamera: ImageButton
+    private var capturedImage: Bitmap? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +46,8 @@ class HomeFragment : Fragment() {
         btnRestaurantList = view.findViewById(R.id.btnRestaurantList)
         btnHotelList = view.findViewById(R.id.btnHotelList)
 
+        btnreservas = view.findViewById(R.id.btnreservas)
+
         btnRestaurantList.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_fragmentRestaurant_list)
         }
@@ -52,11 +56,35 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_fragment_hotel_list)
         }
 
+
+        btnHotelList.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_fragment_hotel_list)
+        }
+
+        btnreservas.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_bookingFragment)
+        }
+
+
+
+
+
+
         btnCamera.setOnClickListener {
             if (checkCameraPermission()) {
                 takePicture()
             } else {
                 requestCameraPermission()
+            }
+        }
+        val btnEnviarComentarios = view.findViewById<Button>(R.id.btnEnviarComentarios)
+        btnEnviarComentarios.setOnClickListener {
+            if (capturedImage != null) {
+                // Aquí puedes enviar los comentarios junto con la imagen
+                Toast.makeText(requireContext(), "Comentarios enviados", Toast.LENGTH_SHORT).show()
+                capturedImage = null // Limpiar la imagen después de enviar los comentarios
+            }else{
+                Toast.makeText(requireContext(), "Comentarios enviados", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -123,5 +151,7 @@ class HomeFragment : Fragment() {
             // Por ejemplo, mostrarla en un ImageView
         }
     }
+
+
 }
 

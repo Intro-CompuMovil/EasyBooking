@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import java.util.*
 
 class BookingRestaurantFragment : Fragment() {
@@ -83,6 +84,7 @@ class BookingRestaurantFragment : Fragment() {
         reservarButton.setOnClickListener {
             reservarButton.isEnabled = false // Disable the button
             Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_bookingRestaurantFragment_to_bookingFragment2)
         }
 
         return view

@@ -38,15 +38,20 @@
             android:hint="¿Qué quieres hacer hoy?"
             android:layout_marginBottom="16dp" />
 
-        <!-- GridView para mostrar las opciones de Vuelos, Tours, Hoteles y Bares -->
-        <GridView
-            android:id="@+id/gridViewOpciones"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_marginBottom="16dp"
-            android:horizontalSpacing="16dp"
-            android:numColumns="2"
-            android:verticalSpacing="16dp" />
+            <!-- Button for fragmentRestaurant_list -->
+            <Button
+                android:id="@+id/btnRestaurantList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurantes" />
+
+            <!-- Button for fragment_hotel_list -->
+            <Button
+                android:id="@+id/btnHotelList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hoteles" />
+
 
         <!-- Layout horizontal para la sección de comentarios y el botón de la cámara -->
         <LinearLayout

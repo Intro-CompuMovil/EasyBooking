@@ -10,12 +10,14 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
 
@@ -24,6 +26,9 @@ class HomeFragment : Fragment() {
         private const val PERMISSION_REQUEST_CAMERA = 100
     }
 
+
+    private lateinit var btnRestaurantList: Button
+    private lateinit var btnHotelList: Button
     private lateinit var editTextExperiencia: EditText
     private lateinit var btnCamera: ImageButton
 
@@ -35,6 +40,17 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         editTextExperiencia = view.findViewById(R.id.editTextExperiencia)
         btnCamera = view.findViewById(R.id.btnCamera)
+
+        btnRestaurantList = view.findViewById(R.id.btnRestaurantList)
+        btnHotelList = view.findViewById(R.id.btnHotelList)
+
+        btnRestaurantList.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_fragmentRestaurant_list)
+        }
+
+        btnHotelList.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_fragment_hotel_list)
+        }
 
         btnCamera.setOnClickListener {
             if (checkCameraPermission()) {

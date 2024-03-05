@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/restaurantListFragmentTOP">
+    app:startDestination="@id/inicioFragment">
 
 
 
@@ -102,6 +102,14 @@
         android:id="@+id/restaurantListFragmentTOP"
         android:name="RestaurantListFragmentTOP"
         android:label="RestaurantListFragmentTOP" />
+    <fragment
+        android:id="@+id/transportReservationFragment"
+        android:name="com.example.easybooking.TransportReservationFragment"
+        android:label="TransportReservationFragment" />
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.easybooking.BookingFragment"
+        android:label="BookingFragment" />
 
 
 </navigation>

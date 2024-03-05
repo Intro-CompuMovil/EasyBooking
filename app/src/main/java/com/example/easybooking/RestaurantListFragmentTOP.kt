@@ -1,5 +1,3 @@
-package com.example.easybooking
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,34 +8,32 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.easybooking.R
+import com.example.easybooking.Restaurant
+import com.example.easybooking.RestaurantAdapterTOP
 
-class RestaurantListFragment : Fragment(), RestaurantAdapter.RestaurantItemClickListener {
+class RestaurantListFragmentTOP : Fragment(), RestaurantAdapterTOP.RestaurantItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: RestaurantAdapter
+    private lateinit var adapter: RestaurantAdapterTOP
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_restaurant_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_topreservas, container, false)
 
         recyclerView = view.findViewById(R.id.recyclerView)
-        adapter = RestaurantAdapter(getSampleRestaurants(), this)
+        adapter = RestaurantAdapterTOP(getSampleRestaurants(), this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        hotelListButton = view.findViewById(R.id.hotelListButton)
-        hotelListButton.setOnClickListener {
-            navigateToHotelListFragment()
-        }
 
         return view
     }
 
     private fun getSampleRestaurants(): List<Restaurant> {
         // Create sample restaurants
-        return listOf(
+        val restaurants = listOf(
             Restaurant("El Cielo", "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá", "Colombian, Molecular Gastronomy Bogota", "320 9189074 prbogota@elcielococinacreativa.com", 4.8, R.drawable.el_cielo),
             Restaurant("Harry Sasson", "Cra. 9 #75-70                               Bogotá", "Colombian, International                     Bogota", "(601) 3477155 prbogota@harrysasson.com", 4.6, R.drawable.harry_sasson),
             Restaurant("Andrés Carne de Res", "Cl. 3 #N° 11A - 56, Chía, Cundinamarca", "Colombian, Steakhouse                        Chia", "317 3311784    Andrescarne@deres.com", 4.5, R.drawable.andres),
@@ -57,9 +53,13 @@ class RestaurantListFragment : Fragment(), RestaurantAdapter.RestaurantItemClick
             Restaurant("Restaurante Barcal", "Carrera 37 # 8A - 37,                   Medellín", "Colombian, Fusion                                                    Medellín", "314-908-6733 barcal@restaurant.com", 4.6, R.drawable.barcal),
             Restaurant("Restaurante Versión Original", "Calle 84 #9-08,                         Bogotá", "Colombian, Fusion                                                  Bogotá", "313-220-8554 versionoriginal@restaurant.com", 4.8, R.drawable.download),
             Restaurant("Restaurante Bastión", "Calle de Ayos #3-96,                            Cartagena", "Caribbean, Fusion                                                     Cartagena", "317-693-1482 bastion@restaurant.com", 4.7, R.drawable.bastion)
-
         )
 
+        // Sort the list of restaurants by rating in descending order
+        val sortedRestaurants = restaurants.sortedByDescending { it.rating }
+
+        // Take the top 10 restaurants from the sorted list
+        return sortedRestaurants.take(10)
     }
 
     override fun onRestaurantItemClick(name: String) {
@@ -80,20 +80,11 @@ class RestaurantListFragment : Fragment(), RestaurantAdapter.RestaurantItemClick
         }
     }
 
-
-    // Function to get the image resource ID based on the restaurant name
-    private fun getRestaurantImageResourceId(name: String): Int {
-        // Iterate through the list of restaurants and find the matching name
-        val restaurant = getSampleRestaurants().find { it.name == name }
-        // Return the image resource ID of the found restaurant
-        return restaurant?.imageResourceId ?: 0 // Return 0 if restaurant is not found (handle error case)
-    }
-
-
     private lateinit var hotelListButton: Button
+
     private fun navigateToHotelListFragment() {
         // Use the NavController to navigate to the restaurant list fragment
         findNavController().navigate(R.id.action_your_current_fragment_to_fragment_hotel_list)
     }
-
 }
+

@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
         private const val PERMISSION_REQUEST_CAMERA = 100
     }
 
+
     private lateinit var btnRestaurantList: Button
     private lateinit var btnHotelList: Button
     private lateinit var editTextExperiencia: EditText

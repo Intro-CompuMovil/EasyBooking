@@ -38,9 +38,6 @@
             android:hint="¿Qué quieres hacer hoy?"
             android:layout_marginBottom="16dp" />
 
-        <!-- GridView para mostrar las opciones de Vuelos, Tours, Hoteles y Bares -->
-
-
             <!-- Button for fragmentRestaurant_list -->
             <Button
                 android:id="@+id/btnRestaurantList"

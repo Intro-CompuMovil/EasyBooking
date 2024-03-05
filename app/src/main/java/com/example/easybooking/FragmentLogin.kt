@@ -23,6 +23,7 @@ import androidx.navigation.fragment.findNavController
 
 class FragmentLogin : Fragment() {
     private lateinit var emailEditText: EditText
+
     private lateinit var passwordEditText: EditText
     private lateinit var iniciarButton: Button
 
@@ -35,10 +36,9 @@ class FragmentLogin : Fragment() {
         emailEditText = view.findViewById(R.id.Email)
         passwordEditText = view.findViewById(R.id.password)
         iniciarButton = view.findViewById(R.id.iniciar)
-
         // Configurar el mensaje de registro
         val registerMessage = view.findViewById<TextView>(R.id.registerMessage)
-        val spannableString = SpannableString("¿No tienes cuenta? Regístrate")
+        val spannableString = SpannableString("¿ya tienes cuenta? Inicia")
         spannableString.setSpan(ForegroundColorSpan(Color.RED), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableString.setSpan(UnderlineSpan(), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableString.setSpan(object : ClickableSpan() {
@@ -51,7 +51,6 @@ class FragmentLogin : Fragment() {
         }, 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         registerMessage.movementMethod = LinkMovementMethod.getInstance()
         registerMessage.text = spannableString
-
         return view
     }
 

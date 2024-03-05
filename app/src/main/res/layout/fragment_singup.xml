@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentLogin">
+    tools:context=".FragmentSingup">
 
 
 
@@ -18,13 +18,15 @@
     <!-- Imagen de logo -->
 
 
+    <!-- EditText para la contraseña -->
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/imageView"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-386dp"
+        android:layout_marginTop="-384dp"
         android:layout_marginBottom="0dp"
         android:src="@drawable/easybookinglogo" />
 
@@ -41,18 +43,35 @@
         android:textColor="@android:color/black"
         android:padding="10dp" />
 
+
+    <!-- EditText para el nombre de usuario-->
+
     <!-- EditText para la contraseña -->
+    <!-- EditText para la ciudad -->
+
 
     <!-- Botón de inicio de sesión -->
-
-    <!-- TextView para el mensaje de registro -->
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Email"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/naranja"
+        android:hint="Ciudad"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="16dp"
         android:background="@color/naranja"
         android:hint="Password"
@@ -60,26 +79,44 @@
         android:padding="10dp"
         android:textColor="@android:color/black" />
 
-    <Button
-        android:id="@+id/iniciar"
+    <EditText
+        android:id="@+id/ciudad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="16dp"
-        android:text="Iniciar" />
+        android:background="@color/naranja"
+        android:hint="Ciudad"
+        android:inputType="textAutoComplete"
+        android:padding="10dp"
+        android:textColor="@android:color/black" />
 
+    <Button
+        android:id="@+id/Registrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ciudad"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:text="Registar" />
+    <!-- TextView para el mensaje de registro -->
     <TextView
-        android:id="@+id/registerMessage"
+        android:id="@+id/mensajevuelta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iniciar"
+        android:layout_below="@id/Registrar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
+
+
 </RelativeLayout>
+
+
 
 

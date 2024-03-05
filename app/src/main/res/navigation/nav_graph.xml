@@ -6,11 +6,6 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/inicioFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.easybooking.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
 
 
     <fragment

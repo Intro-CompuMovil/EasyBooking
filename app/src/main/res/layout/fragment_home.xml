@@ -10,7 +10,7 @@
         android:id="@+id/imageViewFondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/img_2"
+        android:src="@drawable/blured_bg"
         android:scaleType="centerCrop" />
 
     <!-- Contenedor de elementos -->

@@ -43,6 +43,12 @@ class FragmentLogin : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Configurar el OnClickListener para el TextView
+        view.findViewById<TextView>(R.id.textViewOtraPantalla).setOnClickListener {
+            // Navegar a la otra pantalla aquí
+            findNavController().navigate(R.id.action_fragmentLogin_to_fragmentSingup)
+        }
+
         iniciarButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -52,9 +58,9 @@ class FragmentLogin : Fragment() {
             } else {
                 // Si los campos están completos, navegar a la pantalla de inicio
                 findNavController().navigate(R.id.action_fragmentLogin_to_homeFragment)
-
             }
         }
     }
+
 
 }

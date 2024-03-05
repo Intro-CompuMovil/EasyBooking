@@ -39,12 +39,17 @@ class FragmentSingup : Fragment() {
         passwordEditText = view.findViewById(R.id.password)
         ciudadEditText = view.findViewById(R.id.ciudad)
         RegistarButton = view.findViewById(R.id.Registrar)
-        
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Configurar el OnClickListener para el TextView
+        view.findViewById<TextView>(R.id.singup).setOnClickListener {
+            // Navegar a la otra pantalla aquí
+            findNavController().navigate(R.id.action_fragmentSingup_to_fragmentLogin)
+        }
 
         RegistarButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -60,7 +65,6 @@ class FragmentSingup : Fragment() {
 
             }
         }
-
 
     }
 

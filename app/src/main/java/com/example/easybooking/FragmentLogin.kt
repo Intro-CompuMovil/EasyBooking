@@ -18,6 +18,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 
 
 class FragmentLogin : Fragment() {
@@ -37,7 +38,7 @@ class FragmentLogin : Fragment() {
 
         // Configurar el mensaje de registro
         val registerMessage = view.findViewById<TextView>(R.id.registerMessage)
-        val spannableString = SpannableString("¿Ya tienes cuenta? Regístrate")
+        val spannableString = SpannableString("¿No tienes cuenta? Regístrate")
         spannableString.setSpan(ForegroundColorSpan(Color.RED), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableString.setSpan(UnderlineSpan(), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannableString.setSpan(object : ClickableSpan() {
@@ -68,5 +69,20 @@ class FragmentLogin : Fragment() {
 
             }
         }
+        // Configurar el mensaje de registro
+        val registerMessage = view.findViewById<TextView>(R.id.registerMessage)
+        val spannableString = SpannableString("¿No tienes cuenta? Regístrate")
+        spannableString.setSpan(ForegroundColorSpan(Color.RED), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(UnderlineSpan(), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                // Acción al hacer clic en el texto "Regístrate"
+                // Navegar a FragmentSingup
+                findNavController().navigate(R.id.action_fragmentLogin_to_fragmentSingup)
+            }
+        }, 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        registerMessage.movementMethod = LinkMovementMethod.getInstance()
+        registerMessage.text = spannableString
     }
+
 }

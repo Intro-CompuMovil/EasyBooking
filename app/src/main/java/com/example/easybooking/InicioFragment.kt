@@ -21,20 +21,18 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
 
-class FragmentLogin : Fragment() {
-    private lateinit var emailEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var iniciarButton: Button
+class InicioFragment : Fragment() {
+
+    private lateinit var VamosButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_login, container, false)
-        emailEditText = view.findViewById(R.id.Email)
-        passwordEditText = view.findViewById(R.id.password)
-        iniciarButton = view.findViewById(R.id.iniciar)
+        val view = inflater.inflate(R.layout.fragment_inicio, container, false)
+
+        VamosButton = view.findViewById(R.id.Vamos)
 
 
         return view
@@ -43,18 +41,12 @@ class FragmentLogin : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        iniciarButton.setOnClickListener {
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
+        VamosButton.setOnClickListener{
+            findNavController().navigate(R.id.action_inicioFragment_to_fragmentLogin2)
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "Por favor, complete los campos", Toast.LENGTH_SHORT).show()
-            } else {
-                // Si los campos están completos, navegar a la pantalla de inicio
-                findNavController().navigate(R.id.action_fragmentLogin_to_homeFragment)
-
-            }
         }
+
+
     }
 
 }

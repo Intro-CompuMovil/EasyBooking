@@ -69,16 +69,20 @@
         android:layout_marginTop="65dp"
         android:layout_marginEnd="16dp"
         android:text="Iniciar" />
-
     <TextView
-        android:id="@+id/registerMessage"
+        android:id="@+id/textViewOtraPantalla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="no tienes cuenta ? Registarte"
+        android:textColor="@color/botones"
         android:layout_below="@id/iniciar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:clickable="true"
+        android:focusable="true" />
+
+
+
 
 </RelativeLayout>
 

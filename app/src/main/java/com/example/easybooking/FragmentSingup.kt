@@ -39,28 +39,17 @@ class FragmentSingup : Fragment() {
         passwordEditText = view.findViewById(R.id.password)
         ciudadEditText = view.findViewById(R.id.ciudad)
         RegistarButton = view.findViewById(R.id.Registrar)
-        // Configurar el mensaje de registro
-        val registerMessage = view.findViewById<TextView>(R.id.mensajevuelta)
-        val spannableString = SpannableString("¿ya tienes cuenta? Inicia")
-        spannableString.setSpan(ForegroundColorSpan(Color.RED), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.setSpan(UnderlineSpan(), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.setSpan(object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                // Acción al hacer clic en el texto "Regístrate"
-                // Por ejemplo, abrir una nueva actividad de registro
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("URL_DE_TU_PAGINA_DE_REGISTRO"))
-                startActivity(intent)
-            }
-        }, 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        registerMessage.movementMethod = LinkMovementMethod.getInstance()
-        registerMessage.text = spannableString
-
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Configurar el OnClickListener para el TextView
+        view.findViewById<TextView>(R.id.singup).setOnClickListener {
+            // Navegar a la otra pantalla aquí
+            findNavController().navigate(R.id.action_fragmentSingup_to_fragmentLogin)
+        }
 
         RegistarButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -72,23 +61,10 @@ class FragmentSingup : Fragment() {
                 Toast.makeText(requireContext(), "Por favor, complete los campos", Toast.LENGTH_SHORT).show()
             } else {
                 // Si los campos están completos, navegar a la pantalla de inicio
+                findNavController().navigate(R.id.action_fragmentLogin_to_homeFragment)
 
             }
         }
-        // Configurar el mensaje de registro
-        val registerMessage = view.findViewById<TextView>(R.id.mensajevuelta)
-        val spannableString = SpannableString("¿ya tienes cuenta? Inicia")
-        spannableString.setSpan(ForegroundColorSpan(Color.RED), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.setSpan(UnderlineSpan(), 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spannableString.setSpan(object : ClickableSpan() {
-            override fun onClick(widget: View) {
-                // Acción al hacer clic en el texto "Regístrate"
-                // Navegar a FragmentSingup
-                findNavController().navigate(R.id.action_fragmentSingup_to_fragmentLogin)
-            }
-        }, 18, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        registerMessage.movementMethod = LinkMovementMethod.getInstance()
-        registerMessage.text = spannableString
 
     }
 

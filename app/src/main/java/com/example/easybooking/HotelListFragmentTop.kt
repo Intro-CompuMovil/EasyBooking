@@ -123,6 +123,7 @@ class HotelListFragmentTop : Fragment(), HotelAdapter.HotelItemClickListener {
                 putString("HOTEL_AMENITIES", it.amenities)
                 putInt("HOTEL_IMAGE", it.imageResourceId)
             }
+
             // Navega al Fragment de BookingHotelFragment con el Bundle
             findNavController().navigate(R.id.action_hotelListFragment_to_BookingHotelFragment, bundle)
         }

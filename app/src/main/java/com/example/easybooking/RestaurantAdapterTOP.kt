@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RestaurantAdapterTOP(private val restaurants: List<TopRestaurant>, private val listener: RestaurantListFragmentTOP) :
+class RestaurantAdapterTOP(private val restaurants: List<Restaurant>, private val listener: RestaurantListFragmentTOP) :
     RecyclerView.Adapter<RestaurantAdapterTOP.RestaurantViewHolder>() {
 
     interface RestaurantItemClickListener {

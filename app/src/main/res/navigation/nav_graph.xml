@@ -66,6 +66,7 @@
         android:id="@+id/fragmentLogin"
         android:name="com.example.easybooking.FragmentLogin"
         android:label="fragment_login"
+<<<<<<< HEAD
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_fragmentLogin_to_fragmentSingup"
@@ -85,6 +86,21 @@
         <action
             android:id="@+id/action_inicioFragment_to_fragmentLogin2"
             app:destination="@id/fragmentLogin" />
+=======
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/transportReservationFragment"
+        android:name="com.example.easybooking.TransportReservationFragment"
+        android:label="TransportReservationFragment" />
+    <fragment
+        android:id="@+id/reservationsFragment"
+        android:name="com.example.easybooking.ReservationsFragment"
+        android:label="fragment_reservations"
+        tools:layout="@layout/fragment_reservations" >
+        <action
+            android:id="@+id/action_reservationsFragment_to_transportReservationFragment"
+            app:destination="@id/transportReservationFragment" />
+>>>>>>> ea792000f0a7b1cc7593f47bb9fd57ad87fb03d8
     </fragment>
 
 

@@ -8,6 +8,7 @@
 
 
 
+
     <fragment
         android:id="@+id/restaurantListFragment"
         android:name="com.example.easybooking.RestaurantListFragment"

@@ -40,14 +40,32 @@
 
         <!-- GridView para mostrar las opciones de Vuelos, Tours, Hoteles y Bares -->
         <GridView
-            android:id="@+id/gridViewOpciones"
+            android:id="@+id/gridViewOptions"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_marginBottom="16dp"
-            android:horizontalSpacing="16dp"
+            android:layout_height="wrap_content"
             android:numColumns="2"
-            android:verticalSpacing="16dp" />
+            android:verticalSpacing="16dp"
+            android:horizontalSpacing="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:padding="16dp">
 
+            <!-- Button for fragmentRestaurant_list -->
+            <Button
+                android:id="@+id/btnRestaurantList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurantes" />
+
+            <!-- Button for fragment_hotel_list -->
+            <Button
+                android:id="@+id/btnHotelList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hoteles" />
+        </GridView>
         <!-- Layout horizontal para la sección de comentarios y el botón de la cámara -->
         <LinearLayout
             android:layout_width="match_parent"

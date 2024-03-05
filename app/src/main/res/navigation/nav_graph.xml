@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/restaurantListFragmentTOP">
+    app:startDestination="@id/inicioFragment">
 
 
 
@@ -93,7 +93,17 @@
         android:id="@+id/homeFragment"
         android:name="com.example.easybooking.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentRestaurant_list"
+            app:destination="@id/restaurantListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragment_hotel_list"
+            app:destination="@id/hotelListFragment" />
+
+
+    </fragment>
     <fragment
         android:id="@+id/hotelListFragmentTop"
         android:name="com.example.easybooking.HotelListFragmentTop"

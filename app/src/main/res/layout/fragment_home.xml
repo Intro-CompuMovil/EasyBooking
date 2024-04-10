@@ -38,80 +38,63 @@
             android:hint="¿Qué quieres hacer hoy?"
             android:layout_marginBottom="16dp" />
 
-        <!-- Button for fragmentRestaurant_list -->
-        <Button
-            android:id="@+id/btnRestaurantList"
-            android:layout_width="wrap_content"
+        <!-- Botones para Restaurantes y Hoteles -->
+        <LinearLayout
+            android:id="@+id/buttonsLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Restaurantes" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
+            <Button
+                android:id="@+id/btnRestaurantList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Restaurantes" />
 
-        <Button
-            android:id="@+id/btnHotelList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hoteles"
-            />
+            <Button
+                android:id="@+id/btnHotelList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hoteles" />
+        </LinearLayout>
+
+        <!-- Botón para Reservas -->
         <Button
             android:id="@+id/btnreservas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="Reservas Realizadas"
-            />
+            android:layout_marginBottom="16dp" />
 
+        <!-- Botón de imagen para la cámara -->
+        <ImageButton
+            android:id="@+id/btnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@null"
+            android:src="@drawable/img_3" />
 
-
+        <!-- Dos botones debajo del botón de la cámara -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="284dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
 
-            <!-- Sección de comentarios -->
-            <RelativeLayout
-                android:layout_width="197dp"
+
+
+            <Button
+                android:id="@+id/mapas"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:text="mapas" />
 
-                <!-- Título "Comentarios" -->
-                <TextView
-                    android:id="@+id/comentariosTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="Comentarios"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp" />
-
-                <!-- EditText para compartir experiencia -->
-                <EditText
-                    android:id="@+id/editTextExperiencia"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/comentariosTitle"
-                    android:layout_marginBottom="8dp"
-                    android:hint="Comparte tu experiencia" />
-
-                <!-- Botón de enviar comentarios -->
-                <Button
-                    android:id="@+id/btnEnviarComentarios"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/editTextExperiencia"
-                    android:layout_marginTop="8dp"
-                    android:text="Enviar" />
-            </RelativeLayout>
-
-            <!-- Botón de imagen para la cámara -->
-            <ImageButton
-                android:id="@+id/btnCamera"
-                android:layout_width="155dp"
-                android:layout_height="112dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@null"
-                android:src="@drawable/img_3" />
         </LinearLayout>
     </LinearLayout>
 

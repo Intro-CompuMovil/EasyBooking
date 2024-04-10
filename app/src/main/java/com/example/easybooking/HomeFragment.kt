@@ -2,6 +2,7 @@ package com.example.easybooking
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -30,7 +31,6 @@ class HomeFragment : Fragment() {
     private lateinit var btnRestaurantList: Button
     private lateinit var btnHotelList: Button
     private lateinit var btnreservas: Button
-    private lateinit var editTextExperiencia: EditText
     private lateinit var btnCamera: ImageButton
     private var capturedImage: Bitmap? = null
 
@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        editTextExperiencia = view.findViewById(R.id.editTextExperiencia)
+
         btnCamera = view.findViewById(R.id.btnCamera)
 
         btnRestaurantList = view.findViewById(R.id.btnRestaurantList)
@@ -77,16 +77,7 @@ class HomeFragment : Fragment() {
                 requestCameraPermission()
             }
         }
-        val btnEnviarComentarios = view.findViewById<Button>(R.id.btnEnviarComentarios)
-        btnEnviarComentarios.setOnClickListener {
-            if (capturedImage != null) {
-                // Aquí puedes enviar los comentarios junto con la imagen
-                Toast.makeText(requireContext(), "Comentarios enviados", Toast.LENGTH_SHORT).show()
-                capturedImage = null // Limpiar la imagen después de enviar los comentarios
-            }else{
-                Toast.makeText(requireContext(), "Comentarios enviados", Toast.LENGTH_SHORT).show()
-            }
-        }
+
 
         return view
     }
@@ -104,11 +95,32 @@ class HomeFragment : Fragment() {
     }
 
     private fun requestCameraPermission() {
-        requestPermissions(
-            arrayOf(Manifest.permission.CAMERA),
-            PERMISSION_REQUEST_CAMERA
-        )
+        if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
+            // Si el usuario no ha marcado "No preguntar de nuevo", solicitamos el permiso
+            requestPermissions(
+                arrayOf(Manifest.permission.CAMERA),
+                PERMISSION_REQUEST_CAMERA
+            )
+        } else {
+            // Si el usuario ha marcado "No preguntar de nuevo", le mostramos un mensaje explicativo
+            showPermissionDeniedDialog()
+        }
     }
+    private fun showPermissionDeniedDialog() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Permiso necesario")
+            .setMessage("Los permisos de cámara son necesarios para capturar una foto. Por favor, habilítalos manualmente en la configuración de la aplicación.")
+            .setPositiveButton("Ir a configuración") { dialog, _ ->
+                dialog.dismiss()
+
+            }
+            .setNegativeButton("Cancelar") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,

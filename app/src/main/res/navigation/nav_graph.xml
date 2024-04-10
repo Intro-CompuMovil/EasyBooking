@@ -117,14 +117,6 @@
 
     </fragment>
     <fragment
-        android:id="@+id/hotelListFragmentTop"
-        android:name="com.example.easybooking.HotelListFragmentTop"
-        android:label="HotelListFragmentTop" />
-    <fragment
-        android:id="@+id/restaurantListFragmentTOP"
-        android:name="RestaurantListFragmentTOP"
-        android:label="RestaurantListFragmentTOP" />
-    <fragment
         android:id="@+id/transportReservationFragment"
         android:name="com.example.easybooking.TransportReservationFragment"
         android:label="TransportReservationFragment" />

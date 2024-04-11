@@ -3,6 +3,7 @@ package com.example.easybooking
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -97,9 +98,29 @@ class BookingRestaurantFragment : Fragment() {
             }
             (activity as? BookingFragment)?.addReservation(reservation)
             reservarButton.isEnabled = false // Disable the button
-            Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
+
+            // Display a toast to check if information is gathered correctly
+            val toastMessage = "Reservation Information:\n" +
+                    "Restaurant: $restaurantName\n" +
+                    "Location: $location\n" +
+                    "Date: $date\n" +
+                    "Time: $time\n" +
+                    "Party Size: $partySize"
+            Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_LONG).show()
+
+            // Log the gathered information
+            val logMessage = "Reservation Information: " +
+                    "Restaurant: $restaurantName, " +
+                    "Location: $location, " +
+                    "Date: $date, " +
+                    "Time: $time, " +
+                    "Party Size: $partySize"
+            Log.d("ReservationInfo", logMessage)
+
             findNavController().navigate(R.id.action_bookingRestaurantFragment_to_bookingFragment2, args)
         }
+
+
 
         return view
     }

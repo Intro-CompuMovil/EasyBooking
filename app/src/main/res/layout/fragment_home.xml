@@ -73,11 +73,12 @@
         <!-- Botón de imagen para la cámara -->
         <ImageButton
             android:id="@+id/btnCamera"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="276dp"
+            android:layout_height="286dp"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-            android:src="@drawable/img_3" />
+            android:src="@drawable/camera"
+            android:scaleType="fitCenter" />
 
         <!-- Dos botones debajo del botón de la cámara -->
         <LinearLayout

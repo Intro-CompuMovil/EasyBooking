@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -42,6 +42,11 @@ class BookingFragment : Fragment() {
     fun addReservation(reservation: Reservationdata) {
         reservations.add(reservation)
         reservationAdapter.notifyDataSetChanged()
+
+        // Display a toast message with reservation details
+        val toastMessage = "Reservation added:\nRestaurant: ${reservation.restaurantName}\nLocation: ${reservation.location}\nDate: ${reservation.date}\nTime: ${reservation.time}\nParty Size: ${reservation.partySize}"
+        Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_SHORT).show()
     }
+
 
 }

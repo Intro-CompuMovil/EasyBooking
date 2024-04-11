@@ -112,7 +112,7 @@
             app:destination="@id/hotelListFragment" />
         <action
             android:id="@+id/action_homeFragment_to_bookingFragment"
-            app:destination="@id/bookingFragment" />
+            app:destination="@id/myReservationsFragment" />
 
 
     </fragment>
@@ -134,6 +134,11 @@
         android:name="com.example.easybooking.PagoFragment"
         android:label="fragment_pago"
         tools:layout="@layout/fragment_pago" />
+    <fragment
+        android:id="@+id/myReservationsFragment"
+        android:name="com.example.easybooking.MyReservationsFragment"
+        android:label="fragment_my_reservations"
+        tools:layout="@layout/fragment_my_reservations" />
 
 
 </navigation>

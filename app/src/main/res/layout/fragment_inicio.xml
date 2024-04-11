@@ -12,7 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/img"
+        android:src="@drawable/blured_bg"
         android:scaleType="centerCrop" />
     <!-- Imagen de logo -->
 

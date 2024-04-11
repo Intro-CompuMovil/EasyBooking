@@ -3,6 +3,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,38 +17,25 @@ class MyReservationsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_my_reservations, container, false)
 
-        recyclerView = view.findViewById(R.id.recyclerViewReservations)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        // Retrieve reservation information from arguments bundle
+        val restaurantName = arguments?.getString("RESTAURANT_NAME")
+        val location = arguments?.getString("RESTAURANT_LOCATION")
+        val date = arguments?.getString("RESERVATION_DATE")
+        val time = arguments?.getString("RESERVATION_TIME")
+        val partySize = arguments?.getInt("PARTY_SIZE")
 
-        // Create a list of reservations (dummy data for now)
-        val reservations = createDummyReservations()
-
-        reservationAdapter = ReservationAdapterdata(reservations)
-        recyclerView.adapter = reservationAdapter
+        // Display reservation information on TextView
+        val reservationInfoTextView: TextView = view.findViewById(R.id.reservationInfoTextView)
+        val reservationInfo = "Reservation Information:\n" +
+                "Restaurant: $restaurantName\n" +
+                "Location: $location\n" +
+                "Date: $date\n" +
+                "Time: $time\n" +
+                "Party Size: $partySize"
+        reservationInfoTextView.text = reservationInfo
 
         return view
-    }
-
-    private fun createDummyReservations(): List<Reservationdata> {
-        // Here, you can create a list of reservations.
-        // For demonstration purposes, we'll create a list with dummy data.
-        val reservations = mutableListOf<Reservationdata>()
-        for (i in 1..10) {
-            reservations.add(
-                Reservationdata(
-                    "Restaurant $i",
-                    "Location $i",
-                    "Date $i",
-                    "Time $i",
-                    i // Dummy party size
-                )
-            )
-        }
-        return reservations
     }
 }

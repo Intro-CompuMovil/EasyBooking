@@ -14,24 +14,18 @@ class ReservationAdapterdata(private val reservations: List<Reservationdata>) : 
     }
 
     override fun onBindViewHolder(holder: ReservationViewHolder, position: Int) {
-        val currentReservation = reservations[position]
-        holder.bind(currentReservation)
+        val currentItem = reservations[position]
+
+        holder.restaurantNameTextView.text = currentItem.restaurantName
+        holder.partySizeTextView.text = "Party Size: ${currentItem.partySize}"
+        holder.timeTextView.text = "Time: ${currentItem.time}"
     }
 
     override fun getItemCount() = reservations.size
 
     class ReservationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val restaurantNameTextView: TextView = itemView.findViewById(R.id.restaurantNameTextView)
-        private val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
-        private val dateTimeTextView: TextView = itemView.findViewById(R.id.dateTimeTextView)
-        private val partySizeTextView: TextView = itemView.findViewById(R.id.partySizeTextView)
-
-        fun bind(reservation: Reservationdata) {
-            restaurantNameTextView.text = reservation.restaurantName
-            locationTextView.text = reservation.location
-            dateTimeTextView.text = "${reservation.date}, ${reservation.time}"
-            partySizeTextView.text = "Party size: ${reservation.partySize}"
-        }
+        val restaurantNameTextView: TextView = itemView.findViewById(R.id.restaurantNameTextView)
+        val partySizeTextView: TextView = itemView.findViewById(R.id.partySizeTextView)
+        val timeTextView: TextView = itemView.findViewById(R.id.timeTextView)
     }
 }
-

@@ -6,10 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MyReservationsFragment">
 
+    <TextView
+        android:id="@+id/reservationInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewReservations"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/reservationInfoTextView"
         android:padding="16dp"/>
 
 </RelativeLayout>

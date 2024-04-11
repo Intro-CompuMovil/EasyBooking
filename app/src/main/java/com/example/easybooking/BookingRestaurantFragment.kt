@@ -117,10 +117,9 @@ class BookingRestaurantFragment : Fragment() {
                     "Party Size: $partySize"
             Log.d("ReservationInfo", logMessage)
 
-            findNavController().navigate(R.id.action_bookingRestaurantFragment_to_bookingFragment2, args)
+            findNavController().navigate(R.id.action_bookingRestaurantFragment_to_myReservationsFragment, args)
+
         }
-
-
 
         return view
     }

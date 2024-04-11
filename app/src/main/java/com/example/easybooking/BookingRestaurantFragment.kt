@@ -82,9 +82,23 @@ class BookingRestaurantFragment : Fragment() {
         // Set up "Reservar" button
         reservarButton = view.findViewById(R.id.reservarButton)
         reservarButton.setOnClickListener {
+            val restaurantName = restaurantNameTextView.text.toString()
+            val location = locationTextView.text.toString()
+            val date = datePickerButton.text.toString()
+            val time = timePickerButton.text.toString()
+            val partySize = counter
+            val reservation = Reservationdata(restaurantName, location, date, time, partySize)
+            val args = Bundle().apply {
+                putString("RESTAURANT_NAME", restaurantName)
+                putString("RESTAURANT_LOCATION", location)
+                putString("RESERVATION_DATE", date)
+                putString("RESERVATION_TIME", time)
+                putInt("PARTY_SIZE", partySize)
+            }
+            (activity as? BookingFragment)?.addReservation(reservation)
             reservarButton.isEnabled = false // Disable the button
             Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_bookingRestaurantFragment_to_bookingFragment2)
+            findNavController().navigate(R.id.action_bookingRestaurantFragment_to_bookingFragment2, args)
         }
 
         return view

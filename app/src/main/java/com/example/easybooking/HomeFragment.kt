@@ -95,62 +95,35 @@ class HomeFragment : Fragment() {
     }
 
     private fun requestCameraPermission() {
-        if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
-            // Si el usuario no ha marcado "No preguntar de nuevo", solicitamos el permiso
-            requestPermissions(
-                arrayOf(Manifest.permission.CAMERA),
-                PERMISSION_REQUEST_CAMERA
-            )
-        } else {
-            // Si el usuario ha marcado "No preguntar de nuevo", le mostramos un mensaje explicativo
-            showPermissionDeniedDialog()
-        }
+        requestPermissions(
+            arrayOf(Manifest.permission.CAMERA),
+            PERMISSION_REQUEST_CAMERA
+        )
     }
-    private fun showPermissionDeniedDialog() {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Permiso necesario")
-            .setMessage("Los permisos de cámara son necesarios para capturar una foto. Por favor, habilítalos manualmente en la configuración de la aplicación.")
-            .setPositiveButton("Ir a configuración") { dialog, _ ->
-                dialog.dismiss()
-
-            }
-            .setNegativeButton("Cancelar") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .setCancelable(false)
-            .show()
-    }
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSION_REQUEST_CAMERA) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 takePicture()
             } else {
-                if (!shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
-                    // El usuario marcó "No preguntar de nuevo", puedes mostrar un mensaje
-                    // explicando cómo cambiar la configuración de permisos manualmente
-                    Toast.makeText(
-                        requireContext(),
-                        "Los permisos de cámara están deshabilitados. " +
-                                "Por favor, habilítalos manualmente en la configuración de la aplicación.",
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else {
-                    // El usuario negó el permiso pero aún puede solicitarlo nuevamente
-                    Toast.makeText(
-                        requireContext(),
-                        "Se necesitan permisos de cámara para capturar una foto.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    requestCameraPermission()
-                }
+                showPermissionDeniedDialog()
             }
         }
+    }
+
+    private fun showPermissionDeniedDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Permiso necesario")
+            .setMessage("Los permisos de cámara son necesarios para capturar una foto. Por favor, habilítalos manualmente en la configuración de la aplicación.")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -158,9 +131,7 @@ class HomeFragment : Fragment() {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             val extras = data?.extras
             val imageBitmap = extras?.get("data") as Bitmap?
-
-            // Aquí puedes usar la imagen capturada
-            // Por ejemplo, mostrarla en un ImageView
+            // Do something with the captured image
         }
     }
 

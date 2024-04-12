@@ -120,11 +120,19 @@ class HomeFragment : Fragment() {
         AlertDialog.Builder(requireContext())
             .setTitle("Permiso necesario")
             .setMessage("Los permisos de cámara son necesarios para capturar una foto. Por favor, habilítalos manualmente en la configuración de la aplicación.")
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton("Ir a configuración") { dialog, _ ->
+                dialog.dismiss()
+                // Open app settings
+                val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                intent.data = android.net.Uri.parse("package:${requireActivity().packageName}")
+                startActivity(intent)
+            }
+            .setNegativeButton("Cancelar") { dialog, _ ->
                 dialog.dismiss()
             }
             .show()
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

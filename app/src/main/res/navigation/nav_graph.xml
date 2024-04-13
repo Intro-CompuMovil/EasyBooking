@@ -118,8 +118,8 @@
             android:id="@+id/action_homeFragment_to_bookingFragment"
             app:destination="@id/myReservationsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_comentariosFragment"
-            app:destination="@id/comentariosFragment" />
+            android:id="@+id/action_homeFragment_to_mapFragment"
+            app:destination="@id/mapsFragment2" />
 
 
 
@@ -158,7 +158,11 @@
         android:name="com.example.easybooking.PagoFragment"
         android:label="fragment_pago"
         tools:layout="@layout/fragment_pago" />
-
+    <fragment
+        android:id="@+id/mapsFragment2"
+        android:name="com.example.easybooking.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 
 
 </navigation>

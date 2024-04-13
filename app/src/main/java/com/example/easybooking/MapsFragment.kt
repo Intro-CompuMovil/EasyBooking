@@ -11,6 +11,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
@@ -27,6 +28,11 @@ class MapsFragment : Fragment() {
          * install it inside the SupportMapFragment. This method will only be triggered once the
          * user has installed Google Play services and returned to the app.
          */
+
+        val blueMarkerIcon = BitmapDescriptorFactory.fromResource(R.drawable.hotel)
+
+
+
         val location = LatLng(4.6514381, -74.0545997) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
         googleMap.addMarker(MarkerOptions().position(location).title("El cielo"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))

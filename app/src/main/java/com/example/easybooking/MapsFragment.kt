@@ -148,7 +148,6 @@ class MapsFragment : Fragment() {
         val Jones = LatLng(4.6459297302809865, -74.0602420344055) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
         googleMap.addMarker(MarkerOptions().position(Jones).title("Suite Jones Hotel"))
 
-
     }
 
 

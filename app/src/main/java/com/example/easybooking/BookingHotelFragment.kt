@@ -83,8 +83,8 @@ class BookingHotelFragment : Fragment() {
         reservarButton = view.findViewById(R.id.reservarButton)
         reservarButton.setOnClickListener {
             reservarButton.isEnabled = false // Disable the button
-            Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
-          
+           Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_bookingHotelFragment_to_pagoFragment22)
 
         }
 

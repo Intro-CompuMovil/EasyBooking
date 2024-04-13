@@ -32,6 +32,8 @@ class HomeFragment : Fragment() {
     private lateinit var btnHotelList: Button
     private lateinit var btnreservas: Button
     private lateinit var btnCamera: ImageButton
+    private lateinit var btnMap: Button
+
     private var capturedImage: Bitmap? = null
 
     override fun onCreateView(
@@ -42,6 +44,8 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         btnCamera = view.findViewById(R.id.btnCamera)
+
+        btnMap = view.findViewById(R.id.btnMap)
 
         btnRestaurantList = view.findViewById(R.id.btnRestaurantList)
         btnHotelList = view.findViewById(R.id.btnHotelList)
@@ -63,6 +67,9 @@ class HomeFragment : Fragment() {
 
         btnreservas.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_bookingFragment)
+        }
+        btnMap.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_mapsFragment)
         }
 
 

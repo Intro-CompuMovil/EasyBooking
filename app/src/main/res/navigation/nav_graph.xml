@@ -117,6 +117,9 @@
         <action
             android:id="@+id/action_homeFragment_to_bookingFragment"
             app:destination="@id/myReservationsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
 
 
     </fragment>
@@ -147,6 +150,11 @@
         android:id="@+id/bookedFragment"
         android:name="com.example.easybooking.BookedFragment"
         android:label="BookedFragment" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.easybooking.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
 
 
 </navigation>

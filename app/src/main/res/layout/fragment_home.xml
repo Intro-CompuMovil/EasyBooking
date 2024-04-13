@@ -94,7 +94,7 @@
                 android:id="@+id/btnMap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="mapas" />
+                android:text="Ubicaciones Clientes Asociados" />
 
         </LinearLayout>
     </LinearLayout>

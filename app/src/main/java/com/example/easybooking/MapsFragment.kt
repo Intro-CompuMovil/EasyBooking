@@ -24,8 +24,6 @@ import com.google.android.gms.maps.model.MarkerOptions
      private val callback = OnMapReadyCallback { googleMap ->
     val blueMarkerIcon = BitmapDescriptorFactory.fromResource(R.drawable.baseline_bedroom_parent_24)
 
-
-
     val location = LatLng(4.6514381, -74.0545997) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
     googleMap.addMarker(MarkerOptions().position(location).title("El cielo").icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon)))
     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))
@@ -83,6 +81,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
     val HotelTermalesdelOtoño = LatLng(5.008669170725944, -75.44018242052084) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
     googleMap.addMarker(MarkerOptions().position(HotelTermalesdelOtoño).title("Hotel Termales del Otoño").icon(bitmapDescriptorFromVector(requireContext(), R.drawable.baseline_bedroom_parent_24)))
+
 
     val Portón = LatLng(4.664558586137388, -74.04850299026671) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
     googleMap.addMarker(MarkerOptions().position(Portón).title("Hotel Portón Bogotá").icon(bitmapDescriptorFromVector(requireContext(), R.drawable.baseline_bedroom_parent_24)))

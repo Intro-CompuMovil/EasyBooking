@@ -33,7 +33,6 @@ class HomeFragment : Fragment() {
     private lateinit var btnreservas: Button
     private lateinit var btnCamera: ImageButton
 
-    private lateinit var btnComentarios: Button
 
     private lateinit var btnMap: Button
 
@@ -48,14 +47,13 @@ class HomeFragment : Fragment() {
 
         btnCamera = view.findViewById(R.id.btnCamera)
 
-        btnMap = view.findViewById(R.id.btnmapas)
+        btnMap = view.findViewById(R.id.btnMap)
 
         btnRestaurantList = view.findViewById(R.id.btnRestaurantList)
         btnHotelList = view.findViewById(R.id.btnHotelList)
 
         btnreservas = view.findViewById(R.id.btnreservas)
 
-        btnComentarios = view.findViewById(R.id.comentarios)
 
         btnRestaurantList.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_fragmentRestaurant_list)
@@ -74,12 +72,10 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_bookingFragment)
         }
 
-        btnComentarios.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_comentariosFragment)
-        }
         btnMap.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_mapsFragment)
         }
+
             btnCamera.setOnClickListener {
                 if (checkCameraPermission()) {
                     takePicture()

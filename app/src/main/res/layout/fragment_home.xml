@@ -89,13 +89,19 @@
             android:gravity="center_horizontal">
 
 
-
             <Button
                 android:id="@+id/mapas"
+                android:layout_width="158dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Mapas" /> <!-- Ajuste de peso para ocupar el mismo espacio -->
+
+            <Button
+                android:id="@+id/comentarios"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="mapas" />
-
+                android:text="Comentarios"
+                android:layout_weight="2" /> <!-- Ajuste de peso para ocupar el mismo espacio -->
         </LinearLayout>
     </LinearLayout>
 

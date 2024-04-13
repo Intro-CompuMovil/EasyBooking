@@ -122,6 +122,8 @@
             app:destination="@id/comentariosFragment" />
 
 
+
+
     </fragment>
     <fragment
         android:id="@+id/transportReservationFragment"
@@ -146,6 +148,7 @@
         android:name="com.example.easybooking.BookedFragment"
         android:label="BookedFragment" />
     <fragment
+
         android:id="@+id/comentariosFragment"
         android:name="com.example.easybooking.ComentariosFragment"
         android:label="fragment_comentarios"
@@ -155,6 +158,7 @@
         android:name="com.example.easybooking.PagoFragment"
         android:label="fragment_pago"
         tools:layout="@layout/fragment_pago" />
+
 
 
 </navigation>

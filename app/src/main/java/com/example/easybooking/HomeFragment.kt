@@ -32,7 +32,11 @@ class HomeFragment : Fragment() {
     private lateinit var btnHotelList: Button
     private lateinit var btnreservas: Button
     private lateinit var btnCamera: ImageButton
+
     private lateinit var btnComentarios: Button
+
+    private lateinit var btnMap: Button
+
     private var capturedImage: Bitmap? = null
 
     override fun onCreateView(
@@ -43,6 +47,8 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         btnCamera = view.findViewById(R.id.btnCamera)
+
+        btnMap = view.findViewById(R.id.btnmapas)
 
         btnRestaurantList = view.findViewById(R.id.btnRestaurantList)
         btnHotelList = view.findViewById(R.id.btnHotelList)
@@ -64,91 +70,88 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_fragment_hotel_list)
         }
 
-        btnreservas.setOnClickListener{
+        btnreservas.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_bookingFragment)
         }
+
         btnComentarios.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_comentariosFragment)
         }
+            btnCamera.setOnClickListener {
+                if (checkCameraPermission()) {
+                    takePicture()
+                } else {
+                    requestCameraPermission()
+                }
+            }
 
 
+            return view
+        }
+    
+
+        private fun takePicture() {
+            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            startActivityForResult(takePictureIntent, CAMERA_REQUEST)
+        }
+
+        private fun checkCameraPermission(): Boolean {
+            return ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.CAMERA
+            ) == PackageManager.PERMISSION_GRANTED
+        }
+
+        private fun requestCameraPermission() {
+            requestPermissions(
+                arrayOf(Manifest.permission.CAMERA),
+                PERMISSION_REQUEST_CAMERA
+            )
+        }
+
+        override fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<out String>,
+            grantResults: IntArray
+        ) {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+            if (requestCode == PERMISSION_REQUEST_CAMERA) {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    takePicture()
+                } else {
+                    showPermissionDeniedDialog()
+                }
+            }
+        }
+
+        private fun showPermissionDeniedDialog() {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Permiso necesario")
+                .setMessage("Los permisos de cámara son necesarios para capturar una foto. Por favor, habilítalos manualmente en la configuración de la aplicación.")
+                .setPositiveButton("Ir a configuración") { dialog, _ ->
+                    dialog.dismiss()
+                    // Open app settings
+                    val intent =
+                        Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    intent.data = android.net.Uri.parse("package:${requireActivity().packageName}")
+                    startActivity(intent)
+                }
+                .setNegativeButton("Cancelar") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
 
 
-
-
-        btnCamera.setOnClickListener {
-            if (checkCameraPermission()) {
-                takePicture()
-            } else {
-                requestCameraPermission()
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+            if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
+                val extras = data?.extras
+                val imageBitmap = extras?.get("data") as Bitmap?
+                // Do something with the captured image
             }
         }
 
 
-        return view
     }
-
-    private fun takePicture() {
-        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(takePictureIntent, CAMERA_REQUEST)
-    }
-
-    private fun checkCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun requestCameraPermission() {
-        requestPermissions(
-            arrayOf(Manifest.permission.CAMERA),
-            PERMISSION_REQUEST_CAMERA
-        )
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == PERMISSION_REQUEST_CAMERA) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                takePicture()
-            } else {
-                showPermissionDeniedDialog()
-            }
-        }
-    }
-
-    private fun showPermissionDeniedDialog() {
-        AlertDialog.Builder(requireContext())
-            .setTitle("Permiso necesario")
-            .setMessage("Los permisos de cámara son necesarios para capturar una foto. Por favor, habilítalos manualmente en la configuración de la aplicación.")
-            .setPositiveButton("Ir a configuración") { dialog, _ ->
-                dialog.dismiss()
-                // Open app settings
-                val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                intent.data = android.net.Uri.parse("package:${requireActivity().packageName}")
-                startActivity(intent)
-            }
-            .setNegativeButton("Cancelar") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .show()
-    }
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
-            val extras = data?.extras
-            val imageBitmap = extras?.get("data") as Bitmap?
-            // Do something with the captured image
-        }
-    }
-
-
-}
 

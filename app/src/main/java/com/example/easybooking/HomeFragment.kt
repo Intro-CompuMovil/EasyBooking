@@ -77,6 +77,9 @@ class HomeFragment : Fragment() {
         btnComentarios.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_comentariosFragment)
         }
+        btnMap.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_mapsFragment)
+        }
             btnCamera.setOnClickListener {
                 if (checkCameraPermission()) {
                     takePicture()
@@ -88,7 +91,7 @@ class HomeFragment : Fragment() {
 
             return view
         }
-    
+
 
         private fun takePicture() {
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)

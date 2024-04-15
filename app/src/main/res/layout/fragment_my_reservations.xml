@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blured_bg"
     tools:context=".MyReservationsFragment">
+    <Button
+        android:id="@+id/transportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Transporte"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/reservationInfoTextView"
@@ -12,6 +20,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_centerInParent="true"/>
 
     <androidx.recyclerview.widget.RecyclerView

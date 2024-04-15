@@ -94,7 +94,13 @@
                 android:id="@+id/btnMap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ubicaciones Clientes Asociados" />
+                android:text="Ubicaciones Socios" />
+
+            <Button
+                android:id="@+id/btnComentario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Commentario" />
 
         </LinearLayout>
     </LinearLayout>

@@ -32,6 +32,7 @@ class HomeFragment : Fragment() {
     private lateinit var btnHotelList: Button
     private lateinit var btnreservas: Button
     private lateinit var btnCamera: ImageButton
+    private lateinit var btnComentario: Button
 
 
     private lateinit var btnMap: Button
@@ -46,6 +47,8 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         btnCamera = view.findViewById(R.id.btnCamera)
+
+        btnComentario = view.findViewById(R.id.btnComentario)
 
         btnMap = view.findViewById(R.id.btnMap)
 
@@ -63,6 +66,9 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_fragment_hotel_list)
         }
 
+        btnComentario.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_comentariosFragment)
+        }
 
         btnHotelList.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_fragment_hotel_list)

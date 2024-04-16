@@ -120,7 +120,7 @@
         <action
 
             android:id="@+id/action_homeFragment_to_comentariosFragment"
-            app:destination="@id/comentariosFragment" />
+            app:destination="@id/preCommentsFragment" />
         <action
             android:id="@+id/action_homeFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
@@ -175,6 +175,25 @@
         android:name="com.example.easybooking.RutasFragment"
         android:label="fragment_rutas"
         tools:layout="@layout/fragment_rutas" />
+    <fragment
+        android:id="@+id/preCommentsFragment"
+        android:name="com.example.easybooking.PreCommentsFragment"
+        android:label="fragment_pre_comments"
+        tools:layout="@layout/fragment_pre_comments" >
+    <action
 
+        android:id="@+id/action_preCommentsFragment_to_comentariosFragment"
+        app:destination="@id/comentariosFragment" />
+
+    <action
+
+        android:id="@+id/action_preCommentsFragment_to_LeercomentariosFragment"
+        app:destination="@id/leerCommentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leerCommentFragment"
+        android:name="com.example.easybooking.LeerCommentFragment"
+        android:label="fragment_leer_comment"
+        tools:layout="@layout/fragment_leer_comment" />
 
 </navigation>

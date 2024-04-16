@@ -144,7 +144,11 @@
         android:id="@+id/myReservationsFragment"
         android:name="com.example.easybooking.MyReservationsFragment"
         android:label="fragment_my_reservations"
-        tools:layout="@layout/fragment_my_reservations" />
+        tools:layout="@layout/fragment_my_reservations" >
+        <action
+            android:id="@+id/action_myReservationsFragment_to_rutasFragment"
+            app:destination="@id/rutasFragment" />
+    </fragment>
     <fragment
         android:id="@+id/bookedFragment"
         android:name="com.example.easybooking.BookedFragment"
@@ -166,6 +170,11 @@
         android:name="com.example.easybooking.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/rutasFragment"
+        android:name="com.example.easybooking.RutasFragment"
+        android:label="fragment_rutas"
+        tools:layout="@layout/fragment_rutas" />
 
 
 </navigation>

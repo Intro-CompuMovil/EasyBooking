@@ -11,9 +11,12 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -45,7 +48,33 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val spinnerActividad = view.findViewById<Spinner>(R.id.Seleccionplan)
+        val opciones = resources.getStringArray(R.array.planes)
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, opciones)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerActividad.adapter = adapter
 
+        spinnerActividad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                // Manejar la selección del usuario aquí
+                val opcionSeleccionada = parent.getItemAtPosition(position).toString()
+                if (opcionSeleccionada == getString(R.string.que_quieres_hacer)) {
+                    // No hacer nada si se selecciona el mensaje predeterminado
+                    return
+                }
+                // Redirigir al usuario al fragmento correspondiente según la opción seleccionada
+                when (opcionSeleccionada) {
+                    "Comer" -> findNavController().navigate(R.id.action_homeFragment_to_fragmentRestaurant_list)
+                    "Descansar" -> findNavController().navigate(R.id.action_homeFragment_to_fragment_hotel_list)
+
+                }
+                spinnerActividad.setSelection(0)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                Toast.makeText(requireContext(), "Por favor, selecciona una opción", Toast.LENGTH_SHORT).show()
+            }
+        }
         btnCamera = view.findViewById(R.id.btnCamera)
 
         btnComentario = view.findViewById(R.id.btnComentario)

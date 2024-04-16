@@ -30,13 +30,14 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- EditText para ingresar qué quiere hacer hoy -->
-        <EditText
-            android:id="@+id/editTextActividad"
+        <!-- Spinner para ingresar qué quiere hacer hoy -->
+        <Spinner
+            android:id="@+id/Seleccionplan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="¿Qué quieres hacer hoy?"
-            android:layout_marginBottom="16dp" />
+           android:prompt="@string/que_quieres_hacer"
+            android:layout_marginBottom="16dp"
+            android:entries="@array/planes"/>
 
         <!-- Botones para Restaurantes y Hoteles -->
         <LinearLayout

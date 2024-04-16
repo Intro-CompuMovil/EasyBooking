@@ -35,7 +35,7 @@ class BookingHotelFragment : Fragment() {
         // Retrieve the hotel details from arguments
         val hotelName = arguments?.getString("HOTEL_NAME")
         val location = arguments?.getString("HOTEL_LOCATION")
-        val amenities = arguments?.getString("HOTEL_AMENITIES")
+        val amenities = arguments?.getString( "HOTEL_AMENITIES")
         val imageResourceId = arguments?.getInt("HOTEL_IMAGE")
 
         // Display the hotel name

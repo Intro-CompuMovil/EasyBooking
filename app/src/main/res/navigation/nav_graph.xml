@@ -163,7 +163,15 @@
         android:id="@+id/pagoFragment2"
         android:name="com.example.easybooking.PagoFragment"
         android:label="fragment_pago"
-        tools:layout="@layout/fragment_pago" />
+        tools:layout="@layout/fragment_pago" >
+
+        <action
+
+        android:id="@+id/action_comentariosFragment_to_paymentFragment"
+        app:destination="@id/paymentFragment" />
+    </fragment>
+
+
     <fragment
 
         android:id="@+id/mapsFragment"
@@ -195,5 +203,13 @@
         android:name="com.example.easybooking.LeerCommentFragment"
         android:label="fragment_leer_comment"
         tools:layout="@layout/fragment_leer_comment" />
+
+
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.easybooking.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
 
 </navigation>

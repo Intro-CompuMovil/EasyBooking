@@ -5,19 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import android.text.InputFilter
+import android.text.Spanned
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PaymentFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PaymentFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -33,20 +31,40 @@ class PaymentFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_payment, container, false)
+
+        val editTextCardNumber = rootView.findViewById<EditText>(R.id.editTextCardNumber)
+        val editTextExpiryMonth = rootView.findViewById<EditText>(R.id.editTextExpiryMonth)
+        val editTextExpiryYear = rootView.findViewById<EditText>(R.id.editTextExpiryYear)
+        val editTextCVV = rootView.findViewById<EditText>(R.id.editTextCVV)
+        val buttonPay = rootView.findViewById<Button>(R.id.buttonPay)
+
+        // Set filter to enforce format on expiry month and year (MM/YY)
+        val expiryMonthFilter = MonthInputFilter()
+        val expiryYearFilter = YearInputFilter()
+        editTextExpiryMonth.filters = arrayOf(expiryMonthFilter, InputFilter.LengthFilter(2))
+        editTextExpiryYear.filters = arrayOf(expiryYearFilter, InputFilter.LengthFilter(2))
+
+        buttonPay.setOnClickListener {
+            val cardNumber = editTextCardNumber.text.toString()
+            val expiryMonth = editTextExpiryMonth.text.toString()
+            val expiryYear = editTextExpiryYear.text.toString()
+            val cvv = editTextCVV.text.toString()
+
+            // Perform validation here
+            if (cardNumber.isEmpty() || expiryMonth.isEmpty() || expiryYear.isEmpty() || cvv.isEmpty()) {
+                Toast.makeText(requireContext(), "Please fill all fields", Toast.LENGTH_SHORT).show()
+            } else {
+                // Payment logic goes here
+                // For simulation purpose, just show a toast indicating successful payment
+                Toast.makeText(requireContext(), "Payment successful!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        return rootView
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment PaymentFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             PaymentFragment().apply {
@@ -55,5 +73,47 @@ class PaymentFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+}
+
+private class MonthInputFilter : InputFilter {
+    override fun filter(
+        source: CharSequence?,
+        start: Int,
+        end: Int,
+        dest: Spanned?,
+        dstart: Int,
+        dend: Int
+    ): CharSequence? {
+        // Allow only numbers between 1 and 12
+        for (i in start until end) {
+            if (!Character.isDigit(source!![i])) {
+                return ""
+            }
+            val input = (dest.toString() + source.subSequence(start, end)).toInt()
+            if (input < 1 || input > 12) {
+                return ""
+            }
+        }
+        return null
+    }
+}
+
+private class YearInputFilter : InputFilter {
+    override fun filter(
+        source: CharSequence?,
+        start: Int,
+        end: Int,
+        dest: Spanned?,
+        dstart: Int,
+        dend: Int
+    ): CharSequence? {
+        // Allow only numbers and limit input to 2 digits (YY)
+        for (i in start until end) {
+            if (!Character.isDigit(source!![i])) {
+                return ""
+            }
+        }
+        return null
     }
 }

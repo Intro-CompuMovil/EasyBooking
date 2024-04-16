@@ -42,7 +42,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.0545997
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(location).title("El cielo")
+             MarkerOptions().position(location).title("El cielo").snippet("4.8")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
          googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 5f))
@@ -52,7 +52,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.05457768165574
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(HarrySasson).title("Harry Sasson")
+             MarkerOptions().position(HarrySasson).title("Harry Sasson").snippet("4.6")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -61,7 +61,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.06540323264043
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(AndrésCarnedeRes).title("Andrés Carne de Res")
+             MarkerOptions().position(AndrésCarnedeRes).title("Andrés Carne de Res").snippet("4.5")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -70,7 +70,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.05601951263216
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Criterion).title("Criterion")
+             MarkerOptions().position(Criterion).title("Criterion").snippet("4.7")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -79,7 +79,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.053616786269
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Mistura).title("Mistura")
+             MarkerOptions().position(Mistura).title("Mistura").snippet("4.6")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -88,7 +88,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.06033257617905
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Minimal).title("Mini-mal")
+             MarkerOptions().position(Minimal).title("Mini-mal").snippet("4.5")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -97,7 +97,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.05643815773897
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Leo).title("Leo Cocina y Cava")
+             MarkerOptions().position(Leo).title("Leo Cocina y Cava").snippet("4.8")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -106,7 +106,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.54828916173062
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Restaurante1621).title("Restaurante 1621")
+             MarkerOptions().position(Restaurante1621).title("Restaurante 1621").snippet("4.7")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -115,7 +115,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.0601029005077
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(SalvoPatria).title("Salvo Patria")
+             MarkerOptions().position(SalvoPatria).title("Salvo Patria").snippet("4.6")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -124,7 +124,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.11266113726366
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Provincia).title("La Provincia")
+             MarkerOptions().position(Provincia).title("La Provincia").snippet("4.4")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -133,7 +133,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.02959290749932
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(SantisimoCarbon).title("Santisimo Carbon")
+             MarkerOptions().position(SantisimoCarbon).title("Santisimo Carbon").snippet("4.7")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -142,7 +142,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.55100877653803
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(LaVitrola).title("La Vitrola")
+             MarkerOptions().position(LaVitrola).title("La Vitrola").snippet("4.6")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -151,7 +151,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.47936717927864
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Carmen).title("Carmen")
+             MarkerOptions().position(Carmen).title("Carmen").snippet("4.6")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -160,7 +160,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.05367849108788
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Osaka).title("Osaka")
+             MarkerOptions().position(Osaka).title("Osaka").snippet("4.7")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -169,7 +169,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.05720476590959
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(ElKilo).title("El Kilo")
+             MarkerOptions().position(ElKilo).title("El Kilo").snippet("4.5")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -178,7 +178,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.57211625769888
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Barcal).title("Barcal")
+             MarkerOptions().position(Barcal).title("Barcal").snippet("4.6")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -187,7 +187,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.05510230379248
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Original).title("Versión Original")
+             MarkerOptions().position(Original).title("Versión Original").snippet("4.8")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -196,7 +196,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.54584007577178
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(BastionBistro).title("Bastion Bistro")
+             MarkerOptions().position(BastionBistro).title("Bastion Bistro").snippet("4.7")
                  .icon(bitmapDescriptorFromVector(requireContext(), R.drawable.restaurant_icon))
          )
 
@@ -219,7 +219,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.04850299026671
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Portón).title("Hotel Portón Bogotá").icon(
+             MarkerOptions().position(Portón).title("Hotel Portón Bogotá").snippet("5").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -232,7 +232,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.56647868833745
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(CartagenaBeachResort).title("Cartagena Beach Resort").icon(
+             MarkerOptions().position(CartagenaBeachResort).title("Cartagena Beach Resort").snippet("5").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -245,7 +245,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.57142345273303
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(MedellínDowntownSuites).title("Medellín Downtown Suites")
+             MarkerOptions().position(MedellínDowntownSuites).title("Medellín Downtown Suites").snippet("4")
                  .icon(
                      bitmapDescriptorFromVector(
                          requireContext(),
@@ -259,7 +259,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.22722343216455
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Oceanview).title("Santa Marta Ocean view Hotel").icon(
+             MarkerOptions().position(Oceanview).title("Santa Marta Ocean view Hotel").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -272,7 +272,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -76.53873460689097
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(CaliRiverSuites).title("River Suites").icon(
+             MarkerOptions().position(CaliRiverSuites).title("River Suites").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -285,7 +285,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -81.69672737560124
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Portobelo).title("Hotel Portobelo Beach").icon(
+             MarkerOptions().position(Portobelo).title("Hotel Portobelo Beach").snippet("5").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -298,7 +298,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.72585478326043
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Pereira).title("Pereira Mountain Lodge").icon(
+             MarkerOptions().position(Pereira).title("Pereira Mountain Lodge").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -311,7 +311,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.80026474477769
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Barranquilla).title("Barranquilla Grand Plaza").icon(
+             MarkerOptions().position(Barranquilla).title("Barranquilla Grand Plaza").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -324,7 +324,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -73.52194878145588
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Leyva).title("Villa de Leyva Boutique Hotel").icon(
+             MarkerOptions().position(Leyva).title("Villa de Leyva Boutique Hotel").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -337,7 +337,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -76.61023416183622
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Colonial).title("Colonial Retreat").icon(
+             MarkerOptions().position(Colonial).title("Colonial Retreat").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -350,7 +350,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.48886874757315
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(QUO).title("QUO Quality Hotel").icon(
+             MarkerOptions().position(QUO).title("QUO Quality Hotel").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -363,7 +363,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -77.28112718027657
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Pasto).title("Lakeside Resort").icon(
+             MarkerOptions().position(Pasto).title("Lakeside Resort").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -376,7 +376,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -72.49315036031867
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Center).title("City Center Hotel").icon(
+             MarkerOptions().position(Center).title("City Center Hotel").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -389,7 +389,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.66017965340937
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Armenia).title("Vineyard Retreat").icon(
+             MarkerOptions().position(Armenia).title("Vineyard Retreat").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -402,7 +402,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.29747061931306
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Neiva).title("Desert Oasis").icon(
+             MarkerOptions().position(Neiva).title("Desert Oasis").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -415,7 +415,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.88192093133453
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Montería).title("Riverside Hotel,").icon(
+             MarkerOptions().position(Montería).title("Riverside Hotel,").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -428,7 +428,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -75.39531169415343
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Sincelejo).title("Urban Retreat").icon(
+             MarkerOptions().position(Sincelejo).title("Urban Retreat").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -441,7 +441,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -73.36169085987493
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Cid).title("Mountain View Lodge").icon(
+             MarkerOptions().position(Cid).title("Mountain View Lodge").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -454,7 +454,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -72.96428599655498
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Riohacha).title("Coastal Resort").icon(
+             MarkerOptions().position(Riohacha).title("Coastal Resort").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -467,7 +467,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -73.24551989128823
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Valledupar).title("Cultural Hotel").icon(
+             MarkerOptions().position(Valledupar).title("Cultural Hotel").snippet("3").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24
@@ -480,7 +480,7 @@ import com.google.android.gms.maps.model.MarkerOptions
              -74.0602420344055
          ) // Latitude and longitude for "Calle 70 #4-47, Cl. 70 #4 - 47, Bogotá"
          googleMap.addMarker(
-             MarkerOptions().position(Jones).title("Suite Jones Hotel").icon(
+             MarkerOptions().position(Jones).title("Suite Jones Hotel").snippet("4").icon(
                  bitmapDescriptorFromVector(
                      requireContext(),
                      R.drawable.baseline_bedroom_parent_24

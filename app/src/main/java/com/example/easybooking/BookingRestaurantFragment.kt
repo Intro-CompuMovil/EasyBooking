@@ -2,7 +2,6 @@ package com.example.easybooking
 
 import android.Manifest
 import android.app.DatePickerDialog
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -29,6 +28,7 @@ import java.util.*
 
 class BookingRestaurantFragment : Fragment() {
 
+    private val REQUEST_CODE_POST_NOTIFICATIONS = 1
     private var counter = 0 // Initialize the counter variable
     private lateinit var datePickerButton: Button // Declare the datePickerButton globally
     private lateinit var timePickerButton: Button // Declare the timePickerButton globally
@@ -132,6 +132,7 @@ class BookingRestaurantFragment : Fragment() {
             // Send notification
             sendNotification("Reservation Confirmed", "Your reservation at $restaurantName is confirmed for $date at $time.")
 
+            // Navigate to HomeFragment
             findNavController().navigate(R.id.action_bookingRestaurantFragment_to_myReservationsFragment, args)
 
         }
@@ -171,6 +172,19 @@ class BookingRestaurantFragment : Fragment() {
     }
 
     private fun sendNotification(title: String, message: String) {
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                REQUEST_CODE_POST_NOTIFICATIONS
+            )
+            return
+        }
+
         val notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         // Create notification channel if Android version is Oreo or higher
@@ -181,7 +195,11 @@ class BookingRestaurantFragment : Fragment() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        val notificationIntent = Intent(requireContext(), MainActivity::class.java)
+        // Intent to open HomeFragment when the notification is tapped
+        val notificationIntent = Intent(requireContext(), MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            putExtra("FRAGMENT_TO_LOAD", "MyReservationsFragment")
+        }
         val pendingIntent = PendingIntent.getActivity(requireContext(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
         val notification = NotificationCompat.Builder(requireContext(), "reservation_channel")
@@ -193,21 +211,20 @@ class BookingRestaurantFragment : Fragment() {
             .build()
 
         with(NotificationManagerCompat.from(requireContext())) {
-            if (ActivityCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                // TODO: Consider calling ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                // public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                        int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return
-            }
             notify(0, notification)
         }
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE_POST_NOTIFICATIONS) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                // Permission granted, proceed with sending the notification
+                sendNotification("Reservation Confirmed", "Your reservation is confirmed.")
+            } else {
+                // Permission denied, show a message to the user
+                Toast.makeText(requireContext(), "Notification permission denied", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 }

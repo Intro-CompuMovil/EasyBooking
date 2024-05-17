@@ -1,7 +1,9 @@
 package com.example.easybooking
 
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
@@ -25,6 +29,11 @@ class BookingHotelFragment : Fragment() {
     private lateinit var reservarButton: Button // Declare the reservarButton globally
     private var selectedDates: MutableList<Long> = mutableListOf() // Store selected dates
 
+    companion object {
+        private const val CHANNEL_ID = "booking_notifications"
+        private const val NOTIFICATION_ID = 1
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,10 +41,13 @@ class BookingHotelFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_booking_hotel, container, false)
 
+        // Create notification channel
+        createNotificationChannel()
+
         // Retrieve the hotel details from arguments
         val hotelName = arguments?.getString("HOTEL_NAME")
         val location = arguments?.getString("HOTEL_LOCATION")
-        val amenities = arguments?.getString( "HOTEL_AMENITIES")
+        val amenities = arguments?.getString("HOTEL_AMENITIES")
         val imageResourceId = arguments?.getInt("HOTEL_IMAGE")
 
         // Display the hotel name
@@ -60,8 +72,6 @@ class BookingHotelFragment : Fragment() {
             showDatePickerDialog()
         }
 
-
-
         // Set up counter functionality
         val counterTextView: TextView = view.findViewById(R.id.counterTextView)
         val minusButton: Button = view.findViewById(R.id.minusButton)
@@ -83,9 +93,9 @@ class BookingHotelFragment : Fragment() {
         reservarButton = view.findViewById(R.id.reservarButton)
         reservarButton.setOnClickListener {
             reservarButton.isEnabled = false // Disable the button
-           Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
+            sendNotification(hotelName, location)
             findNavController().navigate(R.id.action_bookingHotelFragment_to_pagoFragment22)
-
         }
 
         return view
@@ -123,5 +133,32 @@ class BookingHotelFragment : Fragment() {
         picker.show(parentFragmentManager, picker.toString())
     }
 
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = getString(R.string.channel_name)
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
+    }
 
+    private fun sendNotification(hotelName: String?, location: String?) {
+        val notificationBuilder = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+            .setSmallIcon(R.drawable.baseline_circle_notifications_24)
+            .setContentTitle("Reserva Confirmada")
+            .setContentText("Tu reserva en $hotelName en $location ha sido confirmada.")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        with(NotificationManagerCompat.from(requireContext())) {
+            notify(NOTIFICATION_ID, notificationBuilder.build())
+        }
+    }
 }

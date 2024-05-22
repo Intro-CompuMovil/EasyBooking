@@ -37,9 +37,8 @@ class HomeFragment : Fragment() {
     private lateinit var btnCamera: ImageButton
     private lateinit var btnComentario: Button
 
-
     private lateinit var btnMap: Button
-
+    private lateinit var btneditarp: Button
     private var capturedImage: Bitmap? = null
 
     override fun onCreateView(
@@ -75,16 +74,14 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), "Por favor, selecciona una opción", Toast.LENGTH_SHORT).show()
             }
         }
+        btneditarp = view.findViewById(R.id.btnEditProfile)
         btnCamera = view.findViewById(R.id.btnCamera)
-
         btnComentario = view.findViewById(R.id.btnComentario)
-
         btnMap = view.findViewById(R.id.btnMap)
-
         btnRestaurantList = view.findViewById(R.id.btnRestaurantList)
         btnHotelList = view.findViewById(R.id.btnHotelList)
-
         btnreservas = view.findViewById(R.id.btnreservas)
+
 
 
         btnRestaurantList.setOnClickListener {
@@ -110,6 +107,10 @@ class HomeFragment : Fragment() {
         btnMap.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_mapsFragment)
         }
+        btneditarp.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_perfilFragment)
+        }
+
 
             btnCamera.setOnClickListener {
                 if (checkCameraPermission()) {

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_1"
+    tools:context=".PerfilFragment">
+
+    <!-- Imagen de perfil en un marco redondo -->
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_4" />
+
+    <!-- Nombre del usuario -->
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="Nombre del Usuario"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <!-- Cédula del usuario -->
+    <TextView
+        android:id="@+id/user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="USER:user"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <!-- País del usuario -->
+    <TextView
+        android:id="@+id/user_country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_id"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Ciudad: ciudad"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+    <TextView
+        android:id="@+id/user_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_country"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="correo "
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+
+    <!-- Botón flotante con icono de cámara -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-30dp"
+        android:layout_marginEnd="108dp"
+        android:src="@drawable/ic_camera" />
+    <!-- Contenedor de los botones -->
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+
+        <!-- Botón para Guardar Cambios -->
+        <Button
+            android:id="@+id/btn_save_changes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="editar perfil"
+            android:textColor="@android:color/white"
+            android:background="@color/naranja" />
+
+        <!-- Botón para Cerrar Sesión -->
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cerrar sesión"
+            android:textColor="@android:color/white"
+            android:background="@color/naranja" />
+    </LinearLayout>
+</RelativeLayout>

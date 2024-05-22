@@ -19,6 +19,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 
 class FragmentSingup : Fragment() {
@@ -26,46 +28,70 @@ class FragmentSingup : Fragment() {
     private lateinit var passwordEditText: EditText
     private lateinit var userEditText: EditText
     private lateinit var ciudadEditText: EditText
-    private lateinit var RegistarButton: Button
+    private lateinit var registrarButton: Button
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: FirebaseDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_singup, container, false)
         emailEditText = view.findViewById(R.id.Email)
-        userEditText  = view.findViewById(R.id.user)
+        userEditText = view.findViewById(R.id.user)
         passwordEditText = view.findViewById(R.id.password)
         ciudadEditText = view.findViewById(R.id.ciudad)
-        RegistarButton = view.findViewById(R.id.Registrar)
+        registrarButton = view.findViewById(R.id.Registrar)
+
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance()
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Configurar el OnClickListener para el TextView
-        view.findViewById<TextView>(R.id.singup).setOnClickListener {
-            // Navegar a la otra pantalla aquí
-            findNavController().navigate(R.id.action_fragmentSingup_to_fragmentLogin)
-        }
 
-        RegistarButton.setOnClickListener {
+        registrarButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
             val user = userEditText.text.toString()
-            val ciudad =ciudadEditText.text.toString()
+            val ciudad = ciudadEditText.text.toString()
 
-            if (email.isEmpty() || password.isEmpty() || user.isEmpty()||ciudad.isEmpty() ) {
-                Toast.makeText(requireContext(), "Por favor, complete los campos", Toast.LENGTH_SHORT).show()
+            if (email.isEmpty() || password.isEmpty() || user.isEmpty() || ciudad.isEmpty()) {
+                Toast.makeText(requireContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
             } else {
-                // Si los campos están completos, navegar a la pantalla de inicio
-                findNavController().navigate(R.id.action_fragmentLogin_to_homeFragment)
+                // Crear usuario en Firebase Authentication
+                auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val firebaseUser = auth.currentUser
+                            val userId = firebaseUser?.uid
 
+                            // Guardar datos del usuario en Realtime Database
+                            userId?.let { uid ->
+                                val userRef = database.reference.child("users").child(uid)
+                                val userData = hashMapOf(
+                                    "email" to email,
+                                    "user" to user,
+                                    "ciudad" to ciudad
+                                )
+                                userRef.setValue(userData)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(requireContext(), "Usuario registrado exitosamente", Toast.LENGTH_SHORT).show()
+                                        // Navegar a la pantalla de inicio
+                                        findNavController().navigate(R.id.action_fragmentSingup_to_homeFragment)
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Toast.makeText(requireContext(), "Error al registrar usuario: ${e.message}", Toast.LENGTH_SHORT).show()
+                                    }
+                            }
+                        } else {
+                            Toast.makeText(requireContext(), "Error al registrar usuario: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
             }
         }
-
     }
-
 }

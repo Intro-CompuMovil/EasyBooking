@@ -124,6 +124,9 @@
         <action
             android:id="@+id/action_homeFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_perfilFragment"
+            app:destination="@id/perfilFragment" />
 
 
     </fragment>
@@ -211,5 +214,14 @@
         android:name="com.example.easybooking.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.easybooking.PerfilFragment"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" >
+        <action
+            android:id="@+id/action_perfilFragment_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
 
 </navigation>

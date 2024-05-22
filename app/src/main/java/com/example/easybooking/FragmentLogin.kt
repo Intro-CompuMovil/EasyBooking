@@ -19,6 +19,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 
 
 class FragmentLogin : Fragment() {
@@ -26,16 +27,18 @@ class FragmentLogin : Fragment() {
     private lateinit var passwordEditText: EditText
     private lateinit var iniciarButton: Button
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_login, container, false)
         emailEditText = view.findViewById(R.id.Email)
         passwordEditText = view.findViewById(R.id.password)
         iniciarButton = view.findViewById(R.id.iniciar)
 
+        auth = FirebaseAuth.getInstance()
 
         return view
     }
@@ -43,9 +46,7 @@ class FragmentLogin : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar el OnClickListener para el TextView
         view.findViewById<TextView>(R.id.textViewOtraPantalla).setOnClickListener {
-            // Navegar a la otra pantalla aquí
             findNavController().navigate(R.id.action_fragmentLogin_to_fragmentSingup)
         }
 
@@ -56,11 +57,19 @@ class FragmentLogin : Fragment() {
             if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(requireContext(), "Por favor, complete los campos", Toast.LENGTH_SHORT).show()
             } else {
-                // Si los campos están completos, navegar a la pantalla de inicio
-                findNavController().navigate(R.id.action_fragmentLogin_to_homeFragment)
+                // Iniciar sesión con Firebase Authentication
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(requireActivity()) { task ->
+                        if (task.isSuccessful) {
+                            // Si la autenticación es exitosa, navegar a la pantalla de inicio
+                            findNavController().navigate(R.id.action_fragmentLogin_to_homeFragment)
+                        } else {
+                            // Si la autenticación falla, mostrar un mensaje de error
+                            Toast.makeText(requireContext(), "Error al iniciar sesión: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
             }
         }
     }
-
-
 }
+

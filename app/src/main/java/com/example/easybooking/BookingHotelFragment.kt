@@ -20,6 +20,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -98,6 +99,7 @@ class BookingHotelFragment : Fragment() {
             reservarButton.isEnabled = false // Disable the button
             Toast.makeText(requireContext(), "Su reserva se ha hecho satisfactoriamente", Toast.LENGTH_SHORT).show()
             sendNotification(hotelName, location)
+            saveBookingToDatabase(hotelName, location, amenities, selectedDates, counter)
             findNavController().navigate(R.id.action_bookingHotelFragment_to_pagoFragment22)
         }
 
@@ -173,4 +175,25 @@ class BookingHotelFragment : Fragment() {
         }
     }
 
+    private fun saveBookingToDatabase(hotelName: String?, location: String?, amenities: String?, selectedDates: List<Long>, numberOfGuests: Int) {
+        val db = FirebaseFirestore.getInstance()
+
+        val booking = hashMapOf(
+            "hotelName" to hotelName,
+            "location" to location,
+            "amenities" to amenities,
+            "selectedDates" to selectedDates,
+            "numberOfGuests" to numberOfGuests,
+            "timestamp" to System.currentTimeMillis()
+        )
+
+        db.collection("pago")
+            .add(booking)
+            .addOnSuccessListener { documentReference ->
+                Toast.makeText(requireContext(), "Reserva guardada con ID: ${documentReference.id}", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Error al guardar la reserva: $e", Toast.LENGTH_SHORT).show()
+            }
+    }
 }

@@ -24,6 +24,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 
 class BookingRestaurantFragment : Fragment() {
@@ -33,6 +36,15 @@ class BookingRestaurantFragment : Fragment() {
     private lateinit var datePickerButton: Button // Declare the datePickerButton globally
     private lateinit var timePickerButton: Button // Declare the timePickerButton globally
     private lateinit var reservarButton: Button // Declare the reservarButton globally
+    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Initialize Firebase Auth and Database Reference
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference.child("reservas")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -100,59 +112,39 @@ class BookingRestaurantFragment : Fragment() {
             val date = datePickerButton.text.toString()
             val time = timePickerButton.text.toString()
             val partySize = counter
-            val reservation = Reservationdata(restaurantName, location, date, time, partySize)
-            val args = Bundle().apply {
-                putString("RESTAURANT_NAME", restaurantName)
-                putString("RESTAURANT_LOCATION", location)
-                putString("RESERVATION_DATE", date)
-                putString("RESERVATION_TIME", time)
-                putInt("PARTY_SIZE", partySize)
+            val user = auth.currentUser
+            val userId = user?.uid ?: "Anonymous"
+            val userEmail = user?.email ?: "Anonymous"
+
+            val reservationId = database.push().key // Generate a unique key for the reservation
+
+            val reservationData = mapOf(
+                "userId" to userId,
+                "userEmail" to userEmail,
+                "restaurantName" to restaurantName,
+                "location" to location,
+                "date" to date,
+                "time" to time,
+                "partySize" to partySize
+            )
+
+            reservationId?.let {
+                database.child(it).setValue(reservationData)
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "Reservation saved successfully", Toast.LENGTH_SHORT).show()
+
+                        // Send notification
+                        sendNotification("Reservation Confirmed", "Your reservation at $restaurantName is confirmed for $date at $time.")
+
+                        // Navigate to HomeFragment
+                        findNavController().navigate(R.id.action_bookingRestaurantFragment_to_myReservationsFragment)
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "Failed to save reservation", Toast.LENGTH_SHORT).show()
+                    }
             }
-            (activity as? BookingFragment)?.addReservation(reservation)
-            reservarButton.isEnabled = false // Disable the button
-
-            // Display a toast to check if information is gathered correctly
-            val toastMessage = "Reservation Information:\n" +
-                    "Restaurant: $restaurantName\n" +
-                    "Location: $location\n" +
-                    "Date: $date\n" +
-                    "Time: $time\n" +
-                    "Party Size: $partySize"
-            Toast.makeText(requireContext(), toastMessage, Toast.LENGTH_LONG).show()
-
-            // Log the gathered information
-            val logMessage = "Reservation Information: " +
-                    "Restaurant: $restaurantName, " +
-                    "Location: $location, " +
-                    "Date: $date, " +
-                    "Time: $time, " +
-                    "Party Size: $partySize"
-            Log.d("ReservationInfo", logMessage)
-
-            // Send notification
-            sendNotification("Reservation Confirmed", "Your reservation at $restaurantName is confirmed for $date at $time.")
-
-            // Navigate to HomeFragment
-            findNavController().navigate(R.id.action_bookingRestaurantFragment_to_myReservationsFragment, args)
-
         }
-
         return view
-    }
-
-    private fun showDatePickerDialog() {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
-
-        val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
-            // Handle the selected date
-            // You can access the selected year, month, and dayOfMonth here
-            val pickedDate = "$dayOfMonth/${month + 1}/$year"
-            datePickerButton.text = pickedDate
-        }, year, month, dayOfMonth)
-        datePickerDialog.show()
     }
 
     private fun showTimePickerDialog() {
@@ -167,10 +159,64 @@ class BookingRestaurantFragment : Fragment() {
             val hour12 = if (hourOfDay > 12) hourOfDay - 12 else hourOfDay
             val pickedTime = String.format(Locale.getDefault(), "%02d:%02d %s", hour12, minute, format)
             timePickerButton.text = pickedTime
+
+            // Save the selected time to Firebase Realtime Database under "reserva" node
+            val user = auth.currentUser
+            val userId = user?.uid ?: "Anonymous"
+
+            val reservaId = database.child("reserva").push().key
+            val reservaData = mapOf(
+                "userId" to userId,
+                "time" to pickedTime
+            )
+
+            reservaId?.let {
+                database.child("reserva").child(it).setValue(reservaData)
+                    .addOnSuccessListener {
+                        Log.d("ReservationInfo", "Time saved successfully")
+                    }
+                    .addOnFailureListener {
+                        Log.e("ReservationInfo", "Failed to save time: $it")
+                    }
+            }
         }, hour, minute, false) // 12-hour format
         timePickerDialog.show()
     }
 
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
+            // Handle the selected date
+            // You can access the selected year, month, and dayOfMonth here
+            val pickedDate = "$dayOfMonth/${month + 1}/$year"
+            datePickerButton.text = pickedDate
+
+            // Save the selected date to Firebase Realtime Database under "reserva" node
+            val user = auth.currentUser
+            val userId = user?.uid ?: "Anonymous"
+
+            val reservaId = database.child("reserva").push().key
+            val reservaData = mapOf(
+                "userId" to userId,
+                "date" to pickedDate
+            )
+
+            reservaId?.let {
+                database.child("reserva").child(it).setValue(reservaData)
+                    .addOnSuccessListener {
+                        Log.d("ReservationInfo", "Date saved successfully")
+                    }
+                    .addOnFailureListener {
+                        Log.e("ReservationInfo", "Failed to save date: $it")
+                    }
+            }
+        }, year, month, dayOfMonth)
+        datePickerDialog.show()
+    }
     private fun sendNotification(title: String, message: String) {
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),

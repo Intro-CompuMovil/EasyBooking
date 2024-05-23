@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeFragment">
 
     <!-- Fondo -->
@@ -35,32 +35,38 @@
             android:id="@+id/Seleccionplan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           android:prompt="@string/que_quieres_hacer"
+            android:prompt="@string/que_quieres_hacer"
             android:layout_marginBottom="16dp"
             android:entries="@array/planes"/>
 
-        <!-- Botones para Restaurantes y Hoteles -->
-        <LinearLayout
-            android:id="@+id/buttonsLayout"
+        <!-- ScrollView horizontal para los botones de Restaurantes y Hoteles -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginBottom="16dp">
 
-            <Button
-                android:id="@+id/btnRestaurantList"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Restaurantes" />
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnHotelList"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Hoteles" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/btnRestaurantList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Restaurantes"
+                    android:background="@drawable/button_background"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btnHotelList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hoteles"
+                    android:background="@drawable/button_background"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <!-- Botón para Reservas -->
         <Button
@@ -69,7 +75,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Reservas Realizadas"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF" />
 
         <!-- Botón de imagen para la cámara -->
         <ImageButton
@@ -81,37 +89,43 @@
             android:src="@drawable/camera"
             android:scaleType="fitCenter" />
 
-        <!-- Dos botones debajo del botón de la cámara -->
+        <!-- Dos botones debajo del botón de la cámara que parecen barra de inicio -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal">
-
-
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
 
             <Button
                 android:id="@+id/btnMap"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Ubicaciones Socios" />
+                android:layout_weight="1"
+                android:text="Ubicaciones Socios"
+                android:background="@drawable/button_background"
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/btnComentario"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Commentario" />
-
-
-
+                android:layout_weight="1"
+                android:text="Comentario"
+                android:background="@drawable/button_background"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
+
+        <!-- Botón de Editar Perfil al final -->
         <Button
             android:id="@+id/btnEditProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Editar Perfil"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_background"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 </RelativeLayout>

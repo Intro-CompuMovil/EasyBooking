@@ -1,28 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/blured_bg"
     tools:context=".PreCommentsFragment">
 
-    <!-- Button 1 -->
-    <Button
-        android:id="@+id/button1"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hacer comentario"
-        android:textSize="20sp" />
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-    <!-- Button 2 -->
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Leer comentarios"
-        android:textSize="20sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center">
 
+            <!-- Button 1 -->
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Hacer comentario"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:background="@drawable/button_background"
+                android:textColor="#FFFFFF" />
 
-</LinearLayout>
+            <!-- Button 2 -->
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/button1"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="20dp"
+                android:text="Leer comentarios"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:background="@drawable/button_background"
+                android:textColor="#FFFFFF" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

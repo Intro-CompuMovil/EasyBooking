@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ReservationAdapter(private val reservations: List<Reservationdata>) : RecyclerView.Adapter<ReservationAdapter.ReservationViewHolder>() {
+class ReservationAdapter(private var reservations: List<Reservationdata>) : RecyclerView.Adapter<ReservationAdapter.ReservationViewHolder>() {
 
     inner class ReservationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val dateTextView: TextView = itemView.findViewById(R.id.dateTextView)
         val restaurantNameTextView: TextView = itemView.findViewById(R.id.restaurantNameTextView)
         val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
         val timeTextView: TextView = itemView.findViewById(R.id.timeTextView)
@@ -24,11 +25,17 @@ class ReservationAdapter(private val reservations: List<Reservationdata>) : Recy
         val currentReservation = reservations[position]
         holder.restaurantNameTextView.text = currentReservation.restaurantName
         holder.locationTextView.text = currentReservation.location
+        holder.dateTextView.text = currentReservation.date
         holder.timeTextView.text = currentReservation.time
         holder.partySizeTextView.text = currentReservation.partySize.toString()
     }
 
     override fun getItemCount(): Int {
         return reservations.size
+    }
+
+    fun setData(reservations: List<Reservationdata>) {
+        this.reservations = reservations
+        notifyDataSetChanged()
     }
 }

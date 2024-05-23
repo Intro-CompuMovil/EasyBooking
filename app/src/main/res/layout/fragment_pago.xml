@@ -36,17 +36,64 @@
         android:textColor="@android:color/black"
         android:textAllCaps="true"/>
 
-    <!-- Agrega otros elementos de información de la reserva aquí -->
+    <!-- Información de la reserva -->
+    <TextView
+        android:id="@+id/tvHotelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/informacionReservaTextView"
+        android:layout_centerHorizontal="true"
+        android:text="Hotel Name"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvHotelName"
+        android:layout_centerHorizontal="true"
+        android:text="Location"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvAmenities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvLocation"
+        android:layout_centerHorizontal="true"
+        android:text="Amenities"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvDates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAmenities"
+        android:layout_centerHorizontal="true"
+        android:text="Dates"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvGuests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvDates"
+        android:layout_centerHorizontal="true"
+        android:text="Number of Guests"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black" />
 
     <Button
         android:id="@+id/botonPagar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/informacionReservaTextView"
+        android:layout_below="@id/tvGuests"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="349dp"
+        android:layout_marginTop="16dp"
         android:text="Realizar Pago" />
 
 </RelativeLayout>
-

@@ -28,8 +28,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.auth.User
 import com.google.firebase.storage.FirebaseStorage
 
-
-
 private const val PICK_IMAGE_REQUEST = 1
 private const val CAMERA_REQUEST_CODE = 2
 class PerfilFragment : Fragment() {

@@ -8,27 +8,37 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class ComentariosFragment : Fragment() {
 
-private lateinit var btnenviar: Button
+    private lateinit var btnEnviar: Button
+    private lateinit var editTextComentario: EditText
+    private lateinit var spinnerCalificaciones: Spinner
+    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // Inicializar Firebase Auth y Database Reference
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference.child("comentarios")
     }
 
     override fun onCreateView(
-
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View? {
         val view = inflater.inflate(R.layout.fragment_comentarios, container, false)
-        btnenviar= view.findViewById(R.id.btnEnviarComentario)
+        btnEnviar = view.findViewById(R.id.btnEnviarComentario)
+        editTextComentario = view.findViewById(R.id.etComentario)
+        spinnerCalificaciones = view.findViewById(R.id.spinnerCalificacion)
 
-        val spinnerCalificaciones = view.findViewById<Spinner>(R.id.spinnerCalificacion)
         val opcionesCalificaciones = resources.getStringArray(R.array.Calificaciones)
         val adapterCalificaciones = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, opcionesCalificaciones)
         adapterCalificaciones.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -44,21 +54,55 @@ private lateinit var btnenviar: Button
                 }
                 // Mostrar un mensaje Toast con la calificación seleccionada
                 Toast.makeText(requireContext(), "Calificación seleccionada: $calificacionSeleccionada", Toast.LENGTH_SHORT).show()
-                // Establecer la opción predeterminada nuevamente después de la selección
-                spinnerCalificaciones.setSelection(0)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                Toast.makeText(requireContext(), "tu opinion nos ayuda mucho a mejorar  ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Tu opinión nos ayuda mucho a mejorar", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        btnEnviar.setOnClickListener {
+            val comentario = editTextComentario.text.toString().trim()
+            val calificacionPosition = spinnerCalificaciones.selectedItemPosition
+
+            if (calificacionPosition == 0) { // La primera posición es la del texto "Califícanos"
+                Toast.makeText(requireContext(), "Por favor, seleccione una calificación válida", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (comentario.isEmpty()) {
+                Toast.makeText(requireContext(), "Por favor, ingrese un comentario válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val user = auth.currentUser
+            val userId = user?.uid ?: "Anonymous"
+            val userEmail = user?.email ?: "Anonymous"
+
+            val comentarioId = database.push().key
+
+            val calificacion = spinnerCalificaciones.getItemAtPosition(calificacionPosition).toString()
+
+            val comentarioData = mapOf(
+                "userId" to userId,
+                "userEmail" to userEmail, // Guardar el email del usuario
+                "comentario" to comentario,
+                "calificacion" to calificacion,
+                "timestamp" to System.currentTimeMillis()
+            )
+
+            comentarioId?.let {
+                database.child(it).setValue(comentarioData)
+                    .addOnSuccessListener {
+                        Toast.makeText(requireContext(), "Comentario enviado exitosamente", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(requireContext(), "Error al enviar el comentario", Toast.LENGTH_SHORT).show()
+                    }
             }
         }
 
 
-        btnenviar.setOnClickListener {
-            Toast.makeText(requireContext(), "Se ha enviado ,Gracias Por tu comentario nos ayudas a crecer mas ", Toast.LENGTH_SHORT).show()
-        }
         return view
     }
-
-
 }

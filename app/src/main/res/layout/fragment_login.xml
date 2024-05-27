@@ -36,7 +36,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@color/naranja"
-        android:hint="Usuario"
+        android:hint="Correo"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"

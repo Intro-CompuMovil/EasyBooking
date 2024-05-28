@@ -1,4 +1,5 @@
 package com.example.easybooking
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,7 +40,7 @@ class MyReservationsFragment : Fragment() {
 
         // Initialize RecyclerView and ReservationAdapter
         recyclerView = view.findViewById(R.id.recyclerViewReservations)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         reservationAdapter = ReservationAdapter(emptyList())
         recyclerView.adapter = reservationAdapter
 

@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.Polyline
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -103,11 +104,22 @@ class RutasFragment : Fragment() {
         val startString = "${start.longitude},${start.latitude}"
         val endString = "${destination.longitude},${destination.latitude}"
 
-        service.getRoute("YOUR_API_KEY", startString, endString).enqueue(object : retrofit2.Callback<RouteResponse> {
+        service.getRoute("5b3ce3597851110001cf62480bb97ed3c0b044ce8a20296c09e0ea7d", startString, endString).enqueue(object : retrofit2.Callback<RouteResponse> {
             override fun onResponse(call: retrofit2.Call<RouteResponse>, response: retrofit2.Response<RouteResponse>) {
                 if (response.isSuccessful) {
                     val routeResponse = response.body()
                     if (routeResponse != null) {
+                        // Agregar marcadores
+                        val startMarker = Marker(mapView)
+                        startMarker.position = start
+                        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+                        mapView.overlays.add(startMarker)
+
+                        val endMarker = Marker(mapView)
+                        endMarker.position = destination
+                        endMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+                        mapView.overlays.add(endMarker)
+
                         drawRoute(routeResponse)
                     } else {
                         Log.i("Route", "Response body is null")
@@ -122,6 +134,7 @@ class RutasFragment : Fragment() {
             }
         })
     }
+
 
     private fun drawRoute(routeResponse: RouteResponse) {
         val polyline = Polyline()
